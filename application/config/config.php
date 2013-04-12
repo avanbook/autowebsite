@@ -17,7 +17,7 @@ if (!defined('BASEPATH'))
   | path to your installation.
   |
  */
-$config['base_url'] = 'http://localhost/web_generic/';
+$config['base_url'] = 'http://sanrafaellate.com/autowebsite/';
 
 
 /*

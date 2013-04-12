@@ -2,6 +2,6 @@ RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond $1 !^(index\.php|system|images|css|js|captcha)
-RewriteRule ^(.*)$ /web_generic/index.php/$1 [L]
+RewriteRule ^(.*)$ /autowebsite/index.php/$1 [L]
 
  

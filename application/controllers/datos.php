@@ -124,6 +124,55 @@ class Datos extends CI_Controller
         $this->dat_model->delete($dat_id_datos);
         redirect(base_url() . 'admin/datos/lists/', 'refresh');
     }
+    
+    function form_user($dat_id_datos = 0)
+    {
+        $cantidad                = $this->dat_model->count($dat_id_datos);
+        //Variables tabla
+        $data['dat_id_datos']    = & $dat_id_datos;
+        $data['dat_nombre']      = & $dat_nombre;
+        $data['dat_direccion']   = & $dat_direccion;
+        $data['dat_telefono']    = & $dat_telefono;
+        $data['dat_email']       = & $dat_email;
+        $data['dat_facebook']    = & $dat_facebook;
+        $data['dat_twitter']     = & $dat_twitter;
+        $data['dat_gplus']       = & $dat_gplus;
+        $data['dat_localidad']   = & $dat_localidad;
+        $data['dat_coordenadas'] = & $dat_coordenadas;
+        $data['dat_descripcion'] = & $dat_descripcion;
+
+        //Variables a pasar segun la vista
+        $data['title']  = & $title;
+        $data['accion'] = & $accion;
+
+        //Si es mayor a 0 es editar
+        if ($cantidad > 0)
+        {
+            $row             = $this->dat_model->find_all_row();
+            $dat_id_datos    = $row['dat_id_datos'];
+            $dat_nombre      = $row['dat_nombre'];
+            $dat_direccion   = $row['dat_direccion'];
+            $dat_telefono    = $row['dat_telefono'];
+            $dat_email       = $row['dat_email'];
+            $dat_facebook    = $row['dat_facebook'];
+            $dat_twitter     = $row['dat_twitter'];
+            $dat_gplus       = $row['dat_gplus'];
+            $dat_localidad   = $row['dat_localidad'];
+            $dat_coordenadas = $row['dat_coordenadas'];
+            $dat_descripcion = $row['dat_descripcion'];
+
+            $title  = "Editar datos página";
+            $accion = "editar";
+        }
+        else
+        {
+            $title  = "Nuevo datos página";
+            $accion = "crear";
+        }
+
+        $data['view'] = "admin/datos/datos_form";
+        $this->load->view('admin/templates/temp_simple', $data);
+    }
 
 }
 

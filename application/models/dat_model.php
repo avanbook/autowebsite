@@ -63,7 +63,17 @@ class Dat_model extends CI_Model
         return $row['cantidad'];
     }
 
+    /*------------------- TRAER EL LISTADO COMPLETO DE DATOS PERO DEVOLVER EL UTLIMO ROW ------------------*/
     
+    function find_all_row()
+    {
+        $query="select * from datos";
+        $row = $this->db->query($query);
+        $row = $row->row();
+        
+        return $row;
+        
+    }
 
 }
 
