@@ -23,12 +23,7 @@
                     <?php foreach ($datos_array as $var): ?>
                         <tr id="<?php echo "ah_" . $var['im_id_imagen'] ?>">
                             <td><?php echo $var['im_id_imagen'] . "jpg" ?></td>
-                            <?php if ($im_tipo == 'general'): ?>
-                                <td><a rel="example_group" href="<?php echo base_url() . $this->config->item('img_gral_thumb_show') . $var['im_id_imagen'] . ".jpg" ?>"><img class="last"  width="50px" src="<?php echo base_url() . $this->config->item('img_gral_show') . $var['im_id_imagen'] . ".jpg" ?>"></a></td>
-                            <?php elseif ($im_tipo == 'slider'): ?>
-                                <td><a rel="example_group" href="<?php echo base_url() . $this->config->item('img_slider_thumb_show') . $var['im_id_imagen'] . ".jpg" ?>"><img class="last"  width="50px" src="<?php echo base_url() .  $this->config->item('img_slider_show')  . $var['im_id_imagen'] . ".jpg" ?>"></a></td>
-                            <?php endif ?>
-
+                                <td><a rel="example_group" href="<?php echo base_url() . $var['it_gral_url'] . $var['im_id_imagen'] . ".jpg" ?>"><img class="last"  width="50px" src="<?php echo base_url() . $this->config->item('img_gral_show') . $var['im_id_imagen'] . ".jpg" ?>"></a></td>
                             <td>
                                 <form action="<?php echo base_url() ?>admin/imagenes/save/" method="post" enctype="multipart/form-data">
                                     <input type="file" name="filesToUpload[]" id="filesToUpload" multiple="" value="Agregar Foto">
@@ -42,7 +37,7 @@
                                 <input type="text" value="<?php echo $var['im_descripcion'] ?>" />
                             </td>
                             <td>
-                                <a href= "<?php echo base_url() . "imagenes/delete/" . $var['im_id_imagen'] . "/?im_tipo=" . $var['im_tipo'] ?>" ><i class="icon-remove"></i></a>
+                                <a href= "<?php echo base_url() . "imagenes/delete/" . $var['im_id_imagen'] . "/?im_tipo=" . $var['im_id_imagen_tipo'] ?>" ><i class="icon-remove"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

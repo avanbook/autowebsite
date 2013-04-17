@@ -21,13 +21,11 @@ class Imagenes extends CI_Controller
 
     function save()
     {
-
         $im_id_imagen = $this->input->post('im_id_imagen');
         $im_tipo      = $this->input->post('im_tipo');
         $tipo         = $this->input->post('tipo');
 
         $cantidad_fotos = 0;
-
         if (isset($_FILES['filesToUpload']['tmp_name']))
         {
             if (count($_FILES['filesToUpload']['tmp_name']))

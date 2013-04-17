@@ -61,6 +61,7 @@ class Datos extends CI_Controller
         }
 
         $data['view'] = "admin/datos/datos_form";
+        $data['js']=array('js/ckeditor/ckeditor');
         $this->load->view('admin/templates/temp_simple', $data);
     }
 
@@ -97,12 +98,12 @@ class Datos extends CI_Controller
         if ($accion == 'crear')
         {
             $this->dat_model->insert($datos_array);
-            redirect(base_url() . 'admin/datos/lists/', 'refresh');
+            redirect(base_url() . 'datos/lists/', 'refresh');
         }
         elseif ($accion == 'editar')
         {
             $this->dat_model->update($dat_id_datos,$datos_array);
-            redirect(base_url() . 'admin/datos/lists/', 'refresh');
+            redirect(base_url() . 'datos/lists/', 'refresh');
         }
         else
         {
@@ -122,7 +123,7 @@ class Datos extends CI_Controller
     function delete($dat_id_datos)
     {
         $this->dat_model->delete($dat_id_datos);
-        redirect(base_url() . 'admin/datos/lists/', 'refresh');
+        redirect(base_url() . 'datos/lists/', 'refresh');
     }
     
     function form_user($dat_id_datos = 0)

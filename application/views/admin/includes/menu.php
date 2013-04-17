@@ -1,3 +1,10 @@
+<?php
+    $query="select * from imagenes_tipo";
+    $secciones = $this->db->query($query);
+    $secciones = $secciones->result_array(); 
+?>
+
+
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -22,7 +29,6 @@
                             <li><a href="<?php echo base_url() ?>datos/form/">Nuevo Dato</a></li>
                             <li><a href="<?php echo base_url() ?>datos/lists/">Listar Datos</a></li>
                         </ul>
-                        
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Variables<b class="caret"></b></a>
@@ -33,12 +39,26 @@
                         
                     </li>
                     <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Secciones<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url() ?>secciones/form/">Nueva Sección</a></li>
+                            <li><a href="<?php echo base_url() ?>secciones/lists/">Listado Secciones</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Imagen Tipo<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo base_url() ?>imagenes_tipo/form/">Nueva Imagen Tipo</a></li>
+                            <li><a href="<?php echo base_url() ?>imagenes_tipo/lists/">Listado Imagenes</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Imagenes<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url() ?>imagenes/lists/general/">Imagenes General</a></li>
-                            <li><a href="<?php echo base_url() ?>imagenes/lists/slider/">Imagenes Slider</a></li>
+                            <?php foreach($secciones as $var): ?>
+                            <li><a href="<?php echo base_url()."imagenes/lists/".$var['it_id_imagen_tipo'] ?>"><?php echo $var['it_nombre'] ?></a></li>
+                            <?php endforeach; ?>
                         </ul>
-                        
                     </li>
                 </ul>
             </div><!--/.nav-collapse -->

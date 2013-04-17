@@ -17,7 +17,7 @@ if (!defined('BASEPATH'))
   | path to your installation.
   |
  */
-$config['base_url'] = 'http://sanrafaellate.com/autowebsite/';
+$config['base_url'] = 'http://localhost/autowebsite/';
 
 
 /*
@@ -61,7 +61,7 @@ $config['uri_protocol'] = 'AUTO';
   | http://codeigniter.com/user_guide/general/urls.html
  */
 
-$config['url_suffix'] = '';
+$config['url_suffix'] = '.html';
 
 /*
   |--------------------------------------------------------------------------

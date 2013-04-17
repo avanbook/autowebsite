@@ -1,0 +1,96 @@
+<?php
+
+class Secciones extends CI_Controller
+{
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('sec_model');
+        $this->load->library('gf');
+    }
+
+    function index()
+    {
+        $this->lists();
+    }
+
+    function form($id = 0)
+    {
+        $cantidad = $this->sec_model->count($id);
+        //Variables tabla
+        $data['sec_id_seccion'] = & $sec_id_seccion;
+        $data['sec_nombre'] = & $sec_nombre;
+        $data['sec_descripcion'] = & $sec_descripcion;
+
+        //Variables a pasar segun la vista
+        $data['title'] = & $title;
+        $data['accion'] = & $accion;
+
+        //Si es mayor a 0 es editar
+        if ($cantidad > 0)
+        {
+            $row = $this->sec_model->find($id);
+            $sec_id_seccion = $row['sec_id_seccion'];
+            $sec_nombre = $row['sec_nombre'];
+            $sec_descripcion = $row['sec_descripcion'];
+
+            $title = "Editar seccion";
+            $accion = "editar";
+        }
+        else
+        {
+            $title = "Nueva seccion";
+            $accion = "crear";
+        }
+        
+        $data['view'] = "secciones/secciones_form";
+        $this->load->view('admin/templates/temp_simple', $data);
+    }
+
+    function save()
+    {
+        $sec_id_seccion = $this->input->post('sec_id_seccion');
+        $sec_nombre = $this->input->post('sec_nombre');
+        $sec_descripcion = $this->input->post('sec_descripcion');
+
+        $accion = $this->input->post('accion');
+        $datos_array = array(
+            'sec_nombre' => $sec_nombre,
+            'sec_descripcion' => $sec_descripcion,
+        );
+
+        if ($accion == 'crear')
+        {
+            $this->sec_model->insert($datos_array);
+            redirect(base_url() . 'secciones/lists/', 'refresh');
+        }
+        elseif ($accion == 'editar')
+        {
+            $this->sec_model->update($sec_id_seccion, $datos_array);
+            redirect(base_url() . 'secciones/lists/', 'refresh');
+        }
+        else
+        {
+            echo "error";
+            exit();
+        }
+    }
+
+    function lists()
+    {
+        $data['datos_array'] = $this->sec_model->find_all();
+        $data['title'] = "Listado secciones";
+        $data['view'] = "secciones/secciones_list";
+        $this->load->view('admin/templates/temp_simple', $data);
+    }
+
+    function delete($id)
+    {
+        $this->sec_model->delete($id);
+        redirect(base_url() . 'secciones/lists/', 'refresh');
+    }
+
+}
+
+?>

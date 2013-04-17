@@ -6,7 +6,6 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
-
             <!-- CSS -->
             <link rel="stylesheet" href="<?php echo base_url(); ?>css/website/default/default.css" type="text/css" media="screen" />
             <link rel="stylesheet" href="<?php echo base_url(); ?>css/website/light/light.css" type="text/css" media="screen" />
@@ -18,8 +17,8 @@
                     <script type="text/javascript" src="<?php echo base_url(); ?>js/website/jquery-1.8.2.min.js"></script>
                     <script type="text/javascript" src="<?php echo base_url(); ?>js/website/jquery.nivo.slider.js" ></script>
                     <!-- LIGHTBOX-->
-                    <script type="text/javascript" src="<?php echo base_url(); ?>website/lightbox/js/jquery.lightbox-0.5.js"></script>
-                    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>website/lightbox/css/jquery.lightbox-0.5.css" media="screen" />
+                    <script type="text/javascript" src="<?php echo base_url(); ?>js/website/lightbox/js/jquery.lightbox-0.5.js"></script>
+                    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>js/website/lightbox/css/jquery.lightbox-0.5.css" media="screen" />
                     <script type="text/javascript">
 	
 
@@ -48,11 +47,13 @@
                                 <div id="nav">
                                     <div  aling="center">
                                         <ul>
-                                            <li><a href="<?php echo base_url() ?>index.html" title="Ir a pagna de Inicio" >Inicio</a></li>	<li  ><a href="lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					<li><a href="cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
-                                            <li><a href="<?php echo base_url() ?>servicios.html" title="Servicios Cabañas Cabañas Huaraco" >Servicios</a></li>
-                                            <li><a href="<?php echo base_url() ?>ubicacion.html" title="Ubicacion del Complejo" alt="ubicacion" >Ubicacion</a></li>
-                                            <li><a href="<?php echo base_url() ?>fotos.html" title="Galeria fotografica de las cabañas" >Fotos</a></li>
-                                            <li><a href="<?php echo base_url() ?>contacto.html" title="Contactenos.." >Contactenos</a></li>
+                                            <li><a href="<?php echo base_url() ?>home/index.html" title="Ir a pagína de Inicio" >Inicio</a></li>	
+                                            <li><a href="<?php echo base_url() ?>home/lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					
+                                            <li><a href="<?php echo base_url() ?>home/cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
+                                            <li><a href="<?php echo base_url() ?>home/servicios.html" title="Servicios Cabañas Cabañas Huaraco" >Servicios</a></li>
+                                            <li><a href="<?php echo base_url() ?>home/ubicacion.html" title="Ubicacion del Complejo" alt="ubicacion" >Ubicacion</a></li>
+                                            <li><a href="<?php echo base_url() ?>home/fotos.html" title="Galeria fotografica de las cabañas" >Fotos</a></li>
+                                            <li><a href="<?php echo base_url() ?>home/contacto.html" title="Contactenos.." >Contactenos</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -80,7 +81,7 @@
                                         <h2>Fotos de las Cabañas</h2>
                                         <p>Presione en imagen para agrandar.</p>
                                         <?php foreach ($gral_array as $var): ?>
-                                            <a href="<?php base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" title="Vista Exteior Cabañas" ><img src="<?php base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" alt=""  /></a>
+                                            <a href="<?php echo  base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" title="Vista Exteior Cabañas" ><img src="<?php echo  base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" alt=""  /></a>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>

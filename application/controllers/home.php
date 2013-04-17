@@ -1,6 +1,14 @@
 <?php 
-    class home extends CI_Controller
+    class Home extends CI_Controller
     {
+        
+       function __construct()
+       {
+           parent::__construct();
+           $this->load->library('gf');
+           $this->load->model('im_model');
+       }
+        
         function index()
         {
             $this->home();
@@ -8,32 +16,50 @@
         
         function home()
         {
-            $this->load->view('website/home');
+            $data['slider_array']=$this->im_model->find_tipo('slider');
+            $this->load->view('website/home_view',$data);
+            
+        }
+        
+        function cabanas()
+        {
+            $data['slider_array']=$this->im_model->find_tipo('slider');
+            $data['gral_array']=$this->im_model->find_tipo('general');
+            $this->load->view('website/cabanas_view',$data);
         }
         
         function contacto()
         {
-            $this->load->view('website/contacto');
+           $data['slider_array']=$this->im_model->find_tipo('slider');
+            $data['gral_array']=$this->im_model->find_tipo('general');
+            $this->load->view('website/contacto_view',$data);
         }
         
         function fotos()
         {
-            $this->load->view('website/fotos');
+            $data['slider_array']=$this->im_model->find_tipo('slider');
+            $data['gral_array']=$this->im_model->find_tipo('general');
+            $this->load->view('website/fotos_view',$data);
         }
         
         function lugar()
         {
-            $this->load->view('website/lugar');
+            $data['slider_array']=$this->im_model->find_tipo('slider');
+            $data['gral_array']=$this->im_model->find_tipo('general');
+            $this->load->view('website/lugar_view',$data);
         }
         
         function servicios()
         {
-            $this->load->view('website/servicios');
+            $data['slider_array']=$this->im_model->find_tipo('slider');
+            $data['gral_array']=$this->im_model->find_tipo('general');
+            $this->load->view('website/servicios_view',$data);
         }
+       
         
         function ubicacion()
         {
-            $this->load->view('webiste/ubicacion');
+            $this->load->view('website/ubicacion_view');
         }
         
         

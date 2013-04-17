@@ -1,10 +1,10 @@
 <?php
 
-class Im_model extends CI_Model
+class Sec_model extends CI_Model
 {
 
-    const tabla    = 'imagenes';
-    const id_tabla = 'im_id_imagen';
+    const tabla = 'secciones';
+    const id_tabla = 'sec_id_seccion';
 
     /* ------------------------ INSERTAR EN LA BASE DE DATOS----------------------- */
 
@@ -19,8 +19,8 @@ class Im_model extends CI_Model
     function find($id)
     {
         $query = sprintf("select * from %s where %s=%s", self::tabla, self::id_tabla, $id);
-        $row   = $this->db->query($query);
-        $row   = $row->row_array();
+        $row = $this->db->query($query);
+        $row = $row->row_array();
         return $row;
     }
 
@@ -30,19 +30,8 @@ class Im_model extends CI_Model
     {
 
         $query = sprintf("select * from %s", self::tabla);
-        $rows  = $this->db->query($query);
-        $rows  = $rows->result_array();
-        return $rows;
-    }
-    
-    /* ------------------------ LISTAR TODOS LOS ELEMENTOS POR TIPO IMAGEN------------------------ */
-
-    function find_tipo($im_tipo)
-    {
-
-        $query = sprintf("select * from imagenes inner join imagenes_tipo on im_id_imagen_tipo=it_id_imagen_tipo where im_id_imagen_tipo='%s'",$im_tipo);
-        $rows  = $this->db->query($query);
-        $rows  = $rows->result_array();
+        $rows = $this->db->query($query);
+        $rows = $rows->result_array();
         return $rows;
     }
 
@@ -64,28 +53,23 @@ class Im_model extends CI_Model
         $this->db->query($query);
     }
 
-    /* ----------------------- SABER SI EXISTE UN ID ------------------------- */
+    /* ------------------------ CONTAR RESULTADOS TRAIDOS------------------------------- */
 
-    function count($id)
+    function count($id = -1)
     {
-        $query = sprintf("select count(*) as cantidad from  %s where %s=%s", self::tabla, self::id_tabla, $id);
-        $row   = $this->db->query($query);
-        $row   = $row->row_array();
-        return $row['cantidad'];
-    }
-    
-    // ----------------------------------  CONTAR IMAGENES POR TIPO ------------------------------//
-    
-    function count_tipo($im_tipo)
-    {
-        $query=sprintf("select count(*) as cantidad from imagenes where im_tipo='%s'",$im_tipo);
+        if ($id == -1)
+        {
+            $query = sprintf("select count(*) as cantidad from %s", self::tabla);
+        }
+        else
+        {
+            $query = sprintf("select count(*) as cantidad from %s where %s=%s", self::tabla, self::id_tabla, $id);
+        }
+
         $row = $this->db->query($query);
         $row = $row->row_array();
         return $row['cantidad'];
     }
-    
-
-    
 
 }
 

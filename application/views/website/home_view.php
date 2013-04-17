@@ -6,76 +6,56 @@
         <meta name="Keywords" lang="es" content="Turismo, Cabanas,cab, cabanias, San, Rafael, ">
             <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
             <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
-
                 <!-- CSS -->
-                <link rel="stylesheet" href="css/default/default.css" type="text/css" media="screen" />
-                <link rel="stylesheet" href="css/light/light.css" type="text/css" media="screen" />
-                <link rel="stylesheet" href="css/dark/dark.css" type="text/css" media="screen" />
-                <link rel="stylesheet" href="css/bar/bar.css" type="text/css" media="screen" />
-                <link rel="stylesheet" href="css/nivo-slider.css">
-                    <link rel="stylesheet" href="css/estilos.css">
-
+                <link rel="stylesheet" href="<?php echo base_url() ?>css/website/default/default.css" type="text/css" media="screen" />
+                <link rel="stylesheet" href="<?php echo base_url() ?>css/website/light/light.css" type="text/css" media="screen" />
+                <link rel="stylesheet" href="<?php echo base_url() ?>css/website/dark/dark.css" type="text/css" media="screen" />
+                <link rel="stylesheet" href="<?php echo base_url() ?>css/website/bar/bar.css" type="text/css" media="screen" />
+                <link rel="stylesheet" href="<?php echo base_url() ?>css/website/nivo-slider.css">
+                    <link rel="stylesheet" href="<?php echo base_url() ?>css/website/estilos.css">
                         <!-- JS -->
-                        <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
-                        <script type="text/javascript" src="js/jquery.nivo.slider.js" ></script>
+                        <script type="text/javascript" src="<?php echo base_url() ?>js/website/jquery-1.8.2.min.js"></script>
+                        <script type="text/javascript" src="<?php echo base_url() ?>js/website/jquery.nivo.slider.js" ></script>
                         <script type="text/javascript">
-	
                             $(document).ready(function(){ 
                                 $('#sliders').nivoSlider({
                                     effect: 'fade',
                                     directionNav: false, // Next & Prev navigation
                                     controlNav: false, // 1,2,3... navigation
-                                    controlNavThumbs: true, // Use thumbnails for Control Nav
+                                    controlNavThumbs: true // Use thumbnails for Control Nav
 
                                 });
-
-
-
                             });
                         </script>
                         </head>
                         <body>
                             <div align="center" id="divtop">
                                 <div id="general" aling="center">
-
                                     <!--BEGUIN:logo  -->
-                                    <div id="logo"><img src="images/logo.png" alt="cabañas Huaraco"></div>
+                                    <div id="logo"><img src="<?php echo base_url() ?>images/logo.png" alt="cabañas Huaraco"></div>
                                     <!--END : logo -->
                                     <!--BEGUIN:NAV -->
                                     <div id="nav">
-
                                         <div  aling="center">
                                             <ul>
-                                                <li  ><a href="index.html" title="Ir a pagna de Inicio" >Inicio</a></li>	<li  ><a href="lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					<li><a href="cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
+                                                <li><a href="index.html" title="Ir a pagna de Inicio" >Inicio</a></li>	<li  ><a href="lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					<li><a href="cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
                                                 <li><a href="servicios.html" title="Servicios Cabañas Casas del Lago" >Servicios</a></li>
                                                 <li><a href="ubicacion.html" title="Ubicacion del Complejo" alt="ubicacion" >Ubicacion</a></li>
                                                 <li><a href="fotos.html" title="Galeria fotografica de las cabañas" >Fotos</a></li>
                                                 <li><a href="contacto.html" title="Contactenos.." >Contactenos</a></li>
                                             </ul>
                                         </div>
-
                                     </div>
                                     <!--END:NAV -->
-
-
-
                                     <!--BEGUIN:SLIDER -->
-
                                     <div class="theme-default">
-
                                         <div id="sliders" class="nivoSlider">
-                                            <img src="fotos/1.jpg" alt=""  />
-                                            <img src="fotos/2.jpg" alt="" />
-                                            <img src="fotos/4.jpg" alt="" />
-                                            <img src="fotos/5.jpg" alt="" />
-                                            <img src="fotos/8.jpg" alt="" />
-
+                                            <?php foreach ($slider_array as $var): ?>
+                                                <img src="<?php echo base_url() ?>upload/images_slider/<?php echo $var['im_id_imagen'] ?>.jpg" alt=""  />
+                                            <?php endforeach; ?>
                                         </div>
-
                                     </div>
-
                                     <!--END:Slider -->
-
                                     <!--BEGUIN:CONTENIDOS -->
                                     <div id="bien" align="left">
                                         <h1>BIENVENIDOS</h1></div>
@@ -93,10 +73,7 @@
                                     <div id="footer" align="left">
                                         <p class="infos">Cabañas Huaraco - San Rafael - Mendoza - Argentina</p>
                                         <p>Av Alverdi 5300 - Telefonos: 0260 15 4 517036 / 15 4 682657 / 15 4 582148 - Email:  info@cabanashuaraco.com </p>
-
-
                                     </div>
-
                                 </div>
                         </body>
                         </html>

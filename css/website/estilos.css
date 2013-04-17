@@ -19,9 +19,7 @@ body {width:100%; height:100%; margin: 0;
 padding: 0;
 border: 0;
 
-backgroimageund: url('../images/fondo.png');
-background-repeat: repeat-x;
-background-color: #F3F8F4;
+background: url('http://localhost/autowebsite/images/fondo2.png') repeat-x #F3F8F4;
 
  }
 
@@ -47,7 +45,7 @@ background-color: #F3F8F4;
 	box-sizing: border-box;         /* Opera/IE 8+ */  }
 
 /* CONTENIDOS SUPERIOR */
-#cont_info {position:absolute; top:0; right: 7%; }
+#cont_info {position:absolute; width: 100%; top:0; right: 7%; }
 #cont_info div {display: inline-block; padding:8px;}
 #cont_info p {font-family: Tahoma; color: #666; font-size: 0.7em;}
 /* CONTENIDOS HOME */
@@ -258,9 +256,7 @@ body {width:100%; height:100%; margin: 0;
 padding: 0;
 border: 0;
 
-background: url('../images/fondo2.png');
-background-repeat: repeat-x;
-background-color: #F3F8F4;
+background: url('http://localhost/autowebsite/images/fondo2.png') repeat-x #F3F8F4;
 
  }
 
