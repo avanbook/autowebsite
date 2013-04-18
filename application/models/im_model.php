@@ -64,24 +64,44 @@ class Im_model extends CI_Model
         $this->db->query($query);
     }
 
-    /* ----------------------- SABER SI EXISTE UN ID ------------------------- */
+    /* ------------------------ CONTAR RESULTADOS TRAIDOS------------------------------- */
 
-    function count($id)
+    function count($id = -1)
     {
-        $query = sprintf("select count(*) as cantidad from  %s where %s=%s", self::tabla, self::id_tabla, $id);
-        $row   = $this->db->query($query);
-        $row   = $row->row_array();
+        if ($id == -1)
+        {
+            $query = sprintf("select count(*) as cantidad from %s", self::tabla);
+        }
+        else
+        {
+            $query = sprintf("select count(*) as cantidad from %s where %s=%s", self::tabla, self::id_tabla, $id);
+        }
+
+        $row = $this->db->query($query);
+        $row = $row->row_array();
         return $row['cantidad'];
     }
     
     // ----------------------------------  CONTAR IMAGENES POR TIPO ------------------------------//
     
-    function count_tipo($im_tipo)
+    function count_tipo($im_id_imagen_tipo)
     {
-        $query=sprintf("select count(*) as cantidad from imagenes where im_tipo='%s'",$im_tipo);
+        $query=sprintf("select count(*) as cantidad from imagenes where im_id_imagen_tipo=%s",$im_id_imagen_tipo);
         $row = $this->db->query($query);
         $row = $row->row_array();
         return $row['cantidad'];
+    }
+    //Encontrar el nombre del tipo de imagen segun el id imagen
+    function find_it_nombre($im_id_imagen)
+    {
+        $query=  sprintf("select it_nombre,it_id_imagen_tipo from 
+                          imagenes inner join imagenes_tipo 
+                          on it_id_imagen_tipo = im_id_imagen_tipo 
+                          where im_id_imagen=%s",$im_id_imagen);
+        
+        $row = $this->db->query($query);
+        $row = $row->row_array();
+        return $row;
     }
     
 

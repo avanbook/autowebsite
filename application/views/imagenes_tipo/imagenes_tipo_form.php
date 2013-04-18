@@ -39,7 +39,39 @@
             <input type="text" name="it_thumb_url" value="<?php echo $it_thumb_url ?>">
         </div>
     </div>
-    
+    <div class="control-group">
+        <label class="control-label" >Ancho:</label>
+        <div class="controls">
+            <input type="text" name="it_ancho" value="<?php echo $it_ancho ?>">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" >Largo:</label>
+        <div class="controls">
+            <input type="text" name="it_largo" value="<?php echo $it_largo ?>">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" >Ancho thumb:</label>
+        <div class="controls">
+            <input type="text" name="it_ancho_thumb" value="<?php echo $it_ancho_thumb ?>">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" >Largo thumb:</label>
+        <div class="controls">
+            <input type="text" name="it_largo_thumb" value="<?php echo $it_largo_thumb ?>">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" >¿Con thumb?:</label>
+        <div class="controls">
+            <select name="it_con_thumb">
+                <option <?php echo $this->gf->c_select('no',$it_con_thumb) ?> value="no">NO</option>
+                <option <?php echo $this->gf->c_select('si',$it_con_thumb) ?> value="si">SI</option>
+            </select>
+        </div>
+    </div>
     <div class="control-group">
         <label class="control-label" >Descripción:</label>
         <div class="controls">
