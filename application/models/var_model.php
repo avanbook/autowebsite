@@ -34,6 +34,26 @@ class Var_model extends CI_Model
         $rows  = $rows->result_array();
         return $rows;
     }
+    
+    //----------------------------------- INNER JOIN CON SECCION ------------------------------
+    
+    function find_all_inner_seccion()
+    {
+        $query="select * from variables inner join secciones on var_id_seccion=sec_id_seccion group by sec_id_seccion,var_id_variable";
+        $rows = $this->db->query($query);
+        $rows = $rows->result_array();
+        return $rows;
+    }
+    
+    /*--------------------------- LISTAR POR SECCION ---------------------------------------*/
+    function find_by_seccion($var_id_seccion)
+    {
+        $query=  sprintf("select * from variables where var_id_seccion=%s",$var_id_seccion);
+        $rows = $this->db->query($query);
+        $rows = $rows->result_array();
+        return $rows;
+        
+    }
 
     /* ------------------------ MODIFICAR UN REGISTRO----------------------------- */
 
