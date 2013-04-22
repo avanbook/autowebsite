@@ -7,8 +7,8 @@ class Imagenes_tipo extends CI_Controller
     {
         parent::__construct();
         $this->load->model('it_model');
+        $this->load->model('im_model');
         $this->load->library('gf');
-        $this->load->library('ftp');
         $this->load->config('generic_config');
     }
 
@@ -27,8 +27,6 @@ class Imagenes_tipo extends CI_Controller
 
         $data['it_gral_upload']  = & $it_gral_upload;
         $data['it_thumb_upload'] = & $it_thumb_upload;
-        $data['it_gral_url']     = & $it_gral_url;
-        $data['it_thumb_url']    = & $it_thumb_url;
 
         $data['it_ancho'] = & $it_ancho;
         $data['it_largo'] = & $it_largo;
@@ -53,8 +51,6 @@ class Imagenes_tipo extends CI_Controller
 
             $it_gral_upload  = $row['it_gral_upload'];
             $it_thumb_upload = $row['it_thumb_upload'];
-            $it_gral_url     = $row['it_gral_url'];
-            $it_thumb_url    = $row['it_thumb_url'];
 
             $it_ancho = $row['it_ancho'];
             $it_largo = $row['it_largo'];
@@ -74,7 +70,7 @@ class Imagenes_tipo extends CI_Controller
             $accion = "crear";
         }
 
-        $data['view'] = "imagenes_tipo/imagenes_tipo_form";
+        $data['view'] = "admin/imagenes_tipo/imagenes_tipo_form";
         $this->load->view('admin/templates/temp_simple', $data);
     }
 
@@ -86,8 +82,6 @@ class Imagenes_tipo extends CI_Controller
 
         $it_gral_upload  = $this->input->post('it_gral_upload');
         $it_thumb_upload = $this->input->post('it_thumb_upload');
-        $it_gral_url     = $this->input->post('it_gral_url');
-        $it_thumb_url    = $this->input->post('it_thumb_url');
 
         $it_ancho = $this->input->post('it_ancho');
         $it_largo = $this->input->post('it_largo');
@@ -103,8 +97,6 @@ class Imagenes_tipo extends CI_Controller
             'it_descripcion'  => $it_descripcion,
             'it_gral_upload'  => $it_gral_upload,
             'it_thumb_upload' => $it_thumb_upload,
-            'it_gral_url'     => $it_gral_url,
-            'it_thumb_url'    => $it_thumb_url,
             'it_ancho'        => $it_ancho,
             'it_largo'        => $it_largo,
             'it_ancho_thumb'  => $it_ancho_thumb,
@@ -115,8 +107,8 @@ class Imagenes_tipo extends CI_Controller
         if ($accion == 'crear')
         {
             //Crear el directorio para subir imagenes de esta seccion
-            $upload_directory       = $this->config->item('base_hosting') . "upload/" . $it_nombre . "/";
-            $upload_directory_thumb = $this->config->item('base_hosting') . "upload/" . $it_nombre . "/thumb/";
+            $upload_directory       = $this->config->item('base_hosting') . $it_gral_upload;
+            $upload_directory_thumb = $this->config->item('base_hosting') . $it_thumb_upload;
 
             if ($it_con_thumb == 'si')
             {
@@ -133,7 +125,7 @@ class Imagenes_tipo extends CI_Controller
         }
         elseif ($accion == 'editar')
         {
-            $upload_directory_thumb = $this->config->item('base_hosting') . "upload/" . $it_nombre . "/thumb/";
+            $upload_directory_thumb = $this->config->item('base_hosting') . $it_thumb_upload;
             if ($it_con_thumb == 'si')
             {
                 if(!is_dir($upload_directory_thumb))
@@ -159,23 +151,27 @@ class Imagenes_tipo extends CI_Controller
     {
         $data['datos_array'] = $this->it_model->find_all();
         $data['title']       = "Listado imagenes_tipo";
-        $data['view']        = "imagenes_tipo/imagenes_tipo_list";
+        $data['view']        = "admin/imagenes_tipo/imagenes_tipo_list";
         $this->load->view('admin/templates/temp_simple', $data);
     }
 
     function delete($id)
     {
         $row                    = $this->it_model->find($id);
-        $upload_directory       = $this->config->item('base_hosting') . "upload/" . $row['it_nombre'] . "/";
-        $upload_directory_thumb = $this->config->item('base_hosting') . "upload/" . $row['it_nombre'] . "/thumb/";
+        $upload_directory       = $this->config->item('base_hosting') . $row['it_gral_upload'];
+        $upload_directory_thumb = $this->config->item('base_hosting') . $row['it_thumb_upload'];
 
+        //Borrar las carpetas recursivamente
         if (is_dir($upload_directory))
-            rmdir($upload_directory);
+            $this->gf->borrar_carpeta($upload_directory);
         if (is_dir($upload_directory_thumb))
-            rmdir($upload_directory_thumb);
+            $this->gf->borrar_carpeta($upload_directory_thumb);
 
+        //Borro todas las imagenes que queden guardadas en la tabla con ese tipo
+        $this->im_model->delete_all_tipo($id);
+        //Borro el tipo de la tabla imagenes_tipo
         $this->it_model->delete($id);
-        //Borrar el directori
+        //redirecciona
         redirect(base_url() . 'imagenes_tipo/lists/', 'refresh');
     }
 

@@ -1,10 +1,3 @@
-<?php
-    $query="select * from imagenes_tipo";
-    $secciones = $this->db->query($query);
-    $secciones = $secciones->result_array(); 
-?>
-
-
 <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -50,14 +43,6 @@
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo base_url() ?>imagenes_tipo/form/">Nueva Imagen Tipo</a></li>
                             <li><a href="<?php echo base_url() ?>imagenes_tipo/lists/">Listado Imagenes</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Imagenes<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <?php foreach($secciones as $var): ?>
-                            <li><a href="<?php echo base_url()."imagenes/lists/".$var['it_id_imagen_tipo'] ?>"><?php echo $var['it_nombre'] ?></a></li>
-                            <?php endforeach; ?>
                         </ul>
                     </li>
                 </ul>

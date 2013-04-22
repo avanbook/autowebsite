@@ -17,6 +17,7 @@
             <td><?php echo $var['it_nombre'] ?></td>
             <td>
                 <a href="<?php echo base_url() . "imagenes_tipo/form/" . $var['it_id_imagen_tipo'] ?>"><i class="icon-edit"></i></a>&nbsp;&nbsp;
+                <a href="<?php echo base_url() . "imagenes/lists/" . $var['it_id_imagen_tipo'] ?>"><i class="icon-picture"></i></a>&nbsp;&nbsp;
                 <a href="<?php echo base_url() . "imagenes_tipo/delete/" . $var['it_id_imagen_tipo'] ?>"><i class="icon-remove"></i></a>&nbsp;&nbsp;
             </td>
         </tr>

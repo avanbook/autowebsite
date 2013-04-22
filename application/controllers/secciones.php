@@ -44,7 +44,7 @@ class Secciones extends CI_Controller
             $accion = "crear";
         }
         
-        $data['view'] = "secciones/secciones_form";
+        $data['view'] = "admin/secciones/secciones_form";
         $this->load->view('admin/templates/temp_simple', $data);
     }
 
@@ -81,7 +81,7 @@ class Secciones extends CI_Controller
     {
         $data['datos_array'] = $this->sec_model->find_all();
         $data['title'] = "Listado secciones";
-        $data['view'] = "secciones/secciones_list";
+        $data['view'] = "admin/secciones/secciones_list";
         $this->load->view('admin/templates/temp_simple', $data);
     }
 

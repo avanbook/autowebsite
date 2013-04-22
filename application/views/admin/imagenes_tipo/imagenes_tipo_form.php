@@ -25,20 +25,6 @@
             <input type="text" name="it_thumb_upload" value="<?php echo $it_thumb_upload ?>">
         </div>
     </div>
-    
-    <div class="control-group">
-        <label class="control-label" >Url general:</label>
-        <div class="controls">
-            <input type="text" name="it_gral_url" value="<?php echo $it_gral_url ?>">
-        </div>
-    </div>
-    
-    <div class="control-group">
-        <label class="control-label" >Url Thumb:</label>
-        <div class="controls">
-            <input type="text" name="it_thumb_url" value="<?php echo $it_thumb_url ?>">
-        </div>
-    </div>
     <div class="control-group">
         <label class="control-label" >Ancho:</label>
         <div class="controls">

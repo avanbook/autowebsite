@@ -23,9 +23,13 @@
                     <?php foreach ($datos_array as $var): ?>
                         <tr id="<?php echo "ah_" . $var['im_id_imagen'] ?>">
                             <td><?php echo $var['im_id_imagen'] . "jpg" ?></td>
-                                <td><a rel="example_group" href="<?php echo base_url() . "upload/".$var['it_nombre']."/thumb/". $var['im_id_imagen'] . ".jpg" ?>"><img class="last"  width="50px" src="<?php echo base_url() . $this->config->item('img_gral_show') . $var['im_id_imagen'] . ".jpg" ?>"></a></td>
+                            <?php if ($it_con_thumb == 'si'): ?>
+                                <td><a rel="example_group" href="<?php echo base_url() . $it_gral_upload . $var['im_id_imagen'] . ".jpg" ?>"><img class="last"  width="50px" src="<?php echo base_url() . $it_thumb_upload . $var['im_id_imagen'] . ".jpg" ?>"></a></td>
+                            <?php else: ?>
+                                <td><a rel="example_group" href="<?php echo base_url() . $it_gral_upload . $var['im_id_imagen'] . ".jpg" ?>"><img class="last"  width="50px" src="<?php echo base_url() . $it_gral_upload . $var['im_id_imagen'] . ".jpg" ?>"></a></td>
+                            <?php endif ?>
                             <td>
-                                <form action="<?php echo base_url() ?>admin/imagenes/save/" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url() ?>imagenes/save/" method="post" enctype="multipart/form-data">
                                     <input type="file" name="filesToUpload[]" id="filesToUpload" multiple="" value="Agregar Foto">
                                     <input type="submit" value="subir" class="btn btn-primary"/>
                                     <input name="im_id_imagen" value="<?php echo $var['im_id_imagen'] ?>" type="hidden">
@@ -34,7 +38,8 @@
                                 </form>
                             </td>
                             <td>
-                                <input type="text" value="<?php echo $var['im_descripcion'] ?>" />
+                                <input type="text" id="des_<?php echo $var['im_id_imagen']."_".$var['im_id_imagen_tipo'] ?>" value="<?php echo $var['im_descripcion'] ?>" />
+                                <button onclick="guardar_des('<?php echo $var['im_id_imagen'] ?>','<?php echo $var['im_id_imagen_tipo'] ?>')" class="btn btn-primary btn-mini">OK</button>
                             </td>
                             <td>
                                 <a href= "<?php echo base_url() . "imagenes/delete/" . $var['im_id_imagen'] . "/?im_id_imagen_tipo=" . $var['im_id_imagen_tipo'] ?>" ><i class="icon-remove"></i></a>
@@ -44,5 +49,6 @@
                 </table>
             </div>
         </div>
+        <input  type="hidden" id="base_url" value="<?php echo base_url() ?>">
     </div>
 </div>

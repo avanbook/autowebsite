@@ -17,8 +17,12 @@ class Imagenes extends CI_Controller
         $data['datos_array']       = $this->im_model->find_tipo($im_id_imagen_tipo);
         $data['im_id_imagen_tipo'] = $im_id_imagen_tipo;
         $data['it_nombre']         = $it_row['it_nombre'];
+        $data['it_gral_upload']    = $it_row['it_gral_upload'];
+        $data['it_thumb_upload']   = $it_row['it_thumb_upload'];
+        $data['it_con_thumb']      = $it_row['it_con_thumb'];
         $data['title']             = "Listado imagenes";
         $data['view']              = "admin/imagenes/imagenes_list";
+        $data['js'] = array('js/admin/imagenes_list','js/blockui-master/jquery.blockUI');
         $this->load->view('admin/templates/temp_simple', $data);
     }
 
@@ -36,14 +40,14 @@ class Imagenes extends CI_Controller
             {
                 foreach ($_FILES['filesToUpload']['tmp_name'] as $file)
                 {
-                    $image_name  = "";
-                    $thumb_chica = "";
-                    $numero_imagen=0;
+                    $image_name    = "";
+                    $thumb_chica   = "";
+                    $numero_imagen = 0;
                     if ($tipo == 'foto_comun')
                     {
                         $numero_imagen = $im_id_imagen;
-                        $image_name  = $this->config->item('base_hosting') . $ti_row['it_gral_upload'] . $im_id_imagen . ".jpg";
-                        $thumb_chica = $this->config->item('base_hosting') . $ti_row['it_thumb_upload'] . $im_id_imagen . ".jpg";
+                        $image_name    = $this->config->item('base_hosting') . $ti_row['it_gral_upload'] . $im_id_imagen . ".jpg";
+                        $thumb_chica   = $this->config->item('base_hosting') . $ti_row['it_thumb_upload'] . $im_id_imagen . ".jpg";
                     }
                     elseif ($tipo == 'foto_mas')
                     {
@@ -85,12 +89,10 @@ class Imagenes extends CI_Controller
                         ImageJPEG($thumb, $thumb_chica);
                     }
 
-
-
                     if ($tipo == 'foto_mas')
                     {
                         $datos_array = array(
-                            'im_id_imagen' => $numero_imagen,
+                            'im_id_imagen'      => $numero_imagen,
                             'im_id_imagen_tipo' => $im_id_imagen_tipo
                         );
 
@@ -99,26 +101,38 @@ class Imagenes extends CI_Controller
                 }
             }
         }
-        //redirect(base_url() . 'imagenes/lists/' . $im_id_imagen_tipo . "/", 'refresh');
+        redirect(base_url() . 'imagenes/lists/' . $im_id_imagen_tipo . "/", 'refresh');
     }
 
     function delete($im_id_imagen = 0)
     {
         $im_id_imagen_tipo = $this->input->get('im_id_imagen_tipo');
         $it_row            = $this->it_model->find($im_id_imagen_tipo);
-
-        $file_image       = $this->config->item('base_hosting') . $it_row['it_gral_upload'] . "/" . $im_id_imagen . ".jpeg";
-        $file_image_thumb = $this->config->item('base_hosting') . "upload/" . $it_row['nombre'] . "/thumb/" . $im_id_imagen . ".jpeg";
-
+        $file_image        = $this->config->item('base_hosting') . $it_row['it_gral_upload'] .  $im_id_imagen . ".jpg";
+        $file_image_thumb  = $this->config->item('base_hosting') . $it_row['it_thumb_upload'] . $im_id_imagen . ".jpg";
+        
         if (is_file($file_image))
-            unlink($upload_directory);
+            unlink($file_image);
 
         if (is_file($file_image_thumb))
-            unlink($upload_directory_thumb);
+            unlink($file_image_thumb);
 
         $this->im_model->delete($im_id_imagen);
 
         redirect(base_url() . 'imagenes/lists/' . $im_id_imagen_tipo . "/", 'refresh');
+    }
+
+    //Guardar la descripcion de imagenes por ajax
+    function ajax_descripcion()
+    {
+        $im_id_imagen      = $this->input->post('im_id_imagen');
+        $im_descripcion    = $this->input->post('im_descripcion');
+        $im_id_imagen_tipo = $this->input->post('im_id_imagen_tipo');
+
+        $return = $this->im_model->upload_des($im_id_imagen, $im_id_imagen_tipo, $im_descripcion);
+
+        $array = array("result" => $return);
+        echo json_encode($array);
     }
 
 }
