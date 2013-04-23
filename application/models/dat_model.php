@@ -35,6 +35,17 @@ class Dat_model extends CI_Model
         return $rows;
     }
 
+    
+    /* ------------------------ TE DEVUELVE EL ULTIMO ENCONTRADO EN FORMA DE ROW------------------------ */
+
+    function find_all_rows()
+    {
+        $query = sprintf("select * from %s", self::tabla);
+        $rows  = $this->db->query($query);
+        $rows  = $rows->row_array();
+        return $rows;
+    }
+    
     /* ------------------------ MODIFICAR UN REGISTRO----------------------------- */
 
     function update($id, $row = array())

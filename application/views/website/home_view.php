@@ -51,7 +51,7 @@
                                     <div class="theme-default">
                                         <div id="sliders" class="nivoSlider">
                                             <?php foreach ($slider_array as $var): ?>
-                                                <img src="<?php echo base_url() ?>upload/images_slider/<?php echo $var['im_id_imagen'] ?>.jpg" alt=""  />
+                                                <img src="<?php echo base_url() .$var['it_gral_upload'].$var['im_id_imagen'] ?>.jpg" alt=""  />
                                             <?php endforeach; ?>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
                                             <p><b>Cabañas Huaraco</b> los invita a disfrutar de sus vacaciones en un entorno natural y de relajacion.</p> <p>Nuestro Complejo cuenta con con 6 cabañas de 2 habitaciones totalmente equipadas para 6 personas, con un parque verde con pileta y quincho.</p>
                                         </div>
                                         <div id="desta"><h2>Donde Estamos</h2> 
-                                            <p>Av Alberdi 5500</p>
+                                            <p><?php echo $data_row['dat_direccion'] ?></p>
                                             <p>San Rafael - Mendoza</p>
                                             <p>Argentina</p><br/>
                                             <span class="buttons"><a href="ubicacion.html">VER MAPA ></a></span>

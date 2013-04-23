@@ -39,7 +39,6 @@ class Im_model extends CI_Model
 
     function find_tipo($im_tipo)
     {
-
         $query = sprintf("select * from imagenes inner join imagenes_tipo on im_id_imagen_tipo=it_id_imagen_tipo where im_id_imagen_tipo='%s' order by im_id_imagen", $im_tipo);
         $rows  = $this->db->query($query);
         $rows  = $rows->result_array();
@@ -50,7 +49,6 @@ class Im_model extends CI_Model
 
     function update($id, $row = array())
     {
-
         $this->db->where(self::id_tabla, $id);
         $this->db->update(self::tabla, $row);
     }
@@ -59,7 +57,6 @@ class Im_model extends CI_Model
 
     function delete($id)
     {
-
         $query = sprintf("delete from %s where %s=%s", self::tabla, self::id_tabla, $id);
         $this->db->query($query);
     }

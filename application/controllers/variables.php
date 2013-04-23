@@ -100,6 +100,17 @@ class Variables extends CI_Controller
         }
     }
 
+    function  find_var_nombre($var_nombre)
+    {
+        $query=sprintf("select * from variables where var_nombre='%s'",$var_nombre);
+        $row = $this->db->query($query);
+        $row = $row->row_result();
+        return $row;
+    }
+
+
+
+
     function lists()
     {
         $data['datos_array'] = $this->var_model->find_all_inner_seccion();
