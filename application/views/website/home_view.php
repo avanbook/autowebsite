@@ -38,11 +38,9 @@
                                     <div id="nav">
                                         <div  aling="center">
                                             <ul>
-                                                <li><a href="index.html" title="Ir a pagna de Inicio" >Inicio</a></li>	<li  ><a href="lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					<li><a href="cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
-                                                <li><a href="servicios.html" title="Servicios Cabañas Casas del Lago" >Servicios</a></li>
-                                                <li><a href="ubicacion.html" title="Ubicacion del Complejo" alt="ubicacion" >Ubicacion</a></li>
-                                                <li><a href="fotos.html" title="Galeria fotografica de las cabañas" >Fotos</a></li>
-                                                <li><a href="contacto.html" title="Contactenos.." >Contactenos</a></li>
+                                                <?php foreach($secciones_array as $var): ?>
+                                                <li><a href="<?php echo base_url().$var['sec_url'] ?>.html" title="<?php echo $var['sec_descripcion'] ?>" ><?php echo $var['sec_nombre'] ?></a></li>	
+                                                <?php endforeach; ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -51,24 +49,23 @@
                                     <div class="theme-default">
                                         <div id="sliders" class="nivoSlider">
                                             <?php foreach ($slider_array as $var): ?>
-                                                <img src="<?php echo base_url() .$var['it_gral_upload'].$var['im_id_imagen'] ?>.jpg" alt=""  />
+                                                <img src="<?php echo base_url() .$var['it_gral_upload'].$var['im_id_imagen'] ?>.jpg" alt="<?php echo  $var['im_descripcion'] ?>"  />
                                             <?php endforeach; ?>
                                         </div>
                                     </div>
                                     <!--END:Slider -->
                                     <!--BEGUIN:CONTENIDOS -->
                                     <div id="bien" align="left">
-                                        <h1>BIENVENIDOS</h1></div>
+                                        <h1><?php echo $home_head ?></h1></div>
                                     <div id="contenidos" align="left">
                                         <div id="welc">
-                                            <p><b>Cabañas Huaraco</b> los invita a disfrutar de sus vacaciones en un entorno natural y de relajacion.</p> <p>Nuestro Complejo cuenta con con 6 cabañas de 2 habitaciones totalmente equipadas para 6 personas, con un parque verde con pileta y quincho.</p>
+                                            <?php echo $datos_row['dat_descripcion'] ?>
                                         </div>
                                         <div id="desta"><h2>Donde Estamos</h2> 
-                                            <p><?php echo $data_row['dat_direccion'] ?></p>
-                                            <p>San Rafael - Mendoza</p>
-                                            <p>Argentina</p><br/>
+                                            <p><?php echo $datos_row['dat_direccion'] ?></p>
+                                            <p><?php echo $datos_row['dat_localidad'] ?></p>
                                             <span class="buttons"><a href="ubicacion.html">VER MAPA ></a></span>
-                                        </div><div id="social"><h2>Reservas al	</h2><p class="telefonos" align="center">(0260) 15 4 517036 /<br/> 15 4 682657  </p> </div></div>
+                                        </div><div id="social"><h2>Reservas al	</h2><p class="telefonos" align="center"><?php echo $datos_row['dat_telefono'] ?></div></div>
                                     <!--END:CONTENIDOS -->
                                     <div id="footer" align="left">
                                         <p class="infos">Cabañas Huaraco - San Rafael - Mendoza - Argentina</p>

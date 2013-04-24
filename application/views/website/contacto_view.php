@@ -116,20 +116,20 @@
                                 </div>
                                 <!--END:NAV -->
                                 <!--BEGUIN:SLIDER -->
-                                <div class="theme-default">
-                                    <div id="sliders" class="nivoSlider">
-                                        <?php foreach ($slider_array as $var): ?>
-                                            <img src="<?php echo base_url() ?>upload/images_slider/<?php echo $var['im_id_imagen'] ?>.jpg" alt=""  />
-                                        <?php endforeach; ?>
+                                    <div class="theme-default">
+                                        <div id="sliders" class="nivoSlider">
+                                            <?php foreach ($slider_array as $var): ?>
+                                                <img src="<?php echo base_url() .$var['it_gral_upload'].$var['im_id_imagen'] ?>.jpg" alt="<?php echo  $var['im_descripcion'] ?>"  />
+                                            <?php endforeach; ?>
+                                        </div>
                                     </div>
-                                </div>
+                                    <!--END:Slider -->
                                 <!--END:Slider -->
                                 <!--BEGUIN:CONTENIDOS -->
                                 <div id="contenidos" align="left">
-                                    <div id="contacto"><h2>Contactenos</h2>
-                                        <p> Para cualquier duda, consulta o reserva contactenos a traves de nuestro medio de contacto, le responderemos a la bravedad.<br/><br/>
-                                            <b>Email:</b>info@cabanashuaraco.com<br/><br/>
-                                            <b>Telefonos:</b> 0260 15 4 517036 / 15 4 682657 / 15 4 582148 <br/></p></div>
+                                    <div id="contacto"><h2><?php echo $contacto_head ?></h2>
+                                        <?php echo $contacto_body ?>
+                                    </div>
                                     <div id="form_contacto">
                                         <h2>Formulario contacto</h2>
                                         <div id="form">

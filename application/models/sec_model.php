@@ -29,7 +29,7 @@ class Sec_model extends CI_Model
     function find_all()
     {
 
-        $query = sprintf("select * from %s", self::tabla);
+        $query = sprintf("select * from %s order by sec_orden ", self::tabla);
         $rows = $this->db->query($query);
         $rows = $rows->result_array();
         return $rows;

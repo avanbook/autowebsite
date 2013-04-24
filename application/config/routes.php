@@ -39,11 +39,13 @@
 */
 
 $route['default_controller'] = "home";
-$route['servicios'] = "home/servicios/";
-$route['ubicacion'] = "home/ubicacion/";
+$route['index'] = "home";
+$route['cabanas'] = "home/cabanas/";
+$route['contacto'] = "home/contacto/";
 $route['fotos'] = "home/fotos/";
-$route['index'] = "home/contacto";
-
+$route['lugar'] = "home/lugar/";
+$route['servicios'] = "home/servicios/";
+$route['ubicacion'] = "home/ubicacion/";    
 $route['404_override'] = '';
 
 

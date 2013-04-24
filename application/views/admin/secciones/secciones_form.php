@@ -17,6 +17,18 @@
             <textarea name="sec_descripcion"><?php echo $sec_descripcion ?></textarea>
         </div>
     </div>
+     <div class="control-group">
+        <label class="control-label" >Url:</label>
+        <div class="controls">
+            <input name="sec_url" type="text" value="<?php echo $sec_url ?>"/>
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" >Orden:</label>
+        <div class="controls">
+            <input name="sec_orden" type="text" value="<?php echo $sec_orden ?>"/>
+        </div>
+    </div>
     <div class="control-group">
         <div class="controls">
             <button class="btn btn-large btn-primary" type="submit" >Guardar</button>&nbsp;&nbsp;

@@ -17,47 +17,55 @@ class Secciones extends CI_Controller
 
     function form($id = 0)
     {
-        $cantidad = $this->sec_model->count($id);
+        $cantidad                = $this->sec_model->count($id);
         //Variables tabla
-        $data['sec_id_seccion'] = & $sec_id_seccion;
-        $data['sec_nombre'] = & $sec_nombre;
+        $data['sec_id_seccion']  = & $sec_id_seccion;
+        $data['sec_nombre']      = & $sec_nombre;
         $data['sec_descripcion'] = & $sec_descripcion;
+        $data['sec_url']         = & $sec_url;
+        $data['sec_orden']       = & $sec_orden;
 
         //Variables a pasar segun la vista
-        $data['title'] = & $title;
+        $data['title']  = & $title;
         $data['accion'] = & $accion;
 
         //Si es mayor a 0 es editar
         if ($cantidad > 0)
         {
-            $row = $this->sec_model->find($id);
-            $sec_id_seccion = $row['sec_id_seccion'];
-            $sec_nombre = $row['sec_nombre'];
+            $row             = $this->sec_model->find($id);
+            $sec_id_seccion  = $row['sec_id_seccion'];
+            $sec_nombre      = $row['sec_nombre'];
             $sec_descripcion = $row['sec_descripcion'];
+            $sec_url         = $row['sec_url'];
+            $sec_orden       = $row['sec_orden'];
 
-            $title = "Editar seccion";
+            $title  = "Editar seccion";
             $accion = "editar";
         }
         else
         {
-            $title = "Nueva seccion";
+            $title  = "Nueva seccion";
             $accion = "crear";
         }
-        
+
         $data['view'] = "admin/secciones/secciones_form";
         $this->load->view('admin/templates/temp_simple', $data);
     }
 
     function save()
     {
-        $sec_id_seccion = $this->input->post('sec_id_seccion');
-        $sec_nombre = $this->input->post('sec_nombre');
+        $sec_id_seccion  = $this->input->post('sec_id_seccion');
+        $sec_nombre      = $this->input->post('sec_nombre');
         $sec_descripcion = $this->input->post('sec_descripcion');
+        $sec_url         = $this->input->post('sec_url');
+        $sec_orden       = $this->input->post('sec_orden');
 
-        $accion = $this->input->post('accion');
+        $accion      = $this->input->post('accion');
         $datos_array = array(
-            'sec_nombre' => $sec_nombre,
+            'sec_nombre'      => $sec_nombre,
             'sec_descripcion' => $sec_descripcion,
+            'sec_url'         => $sec_url,
+            'sec_orden'       => $sec_orden
         );
 
         if ($accion == 'crear')
@@ -80,8 +88,8 @@ class Secciones extends CI_Controller
     function lists()
     {
         $data['datos_array'] = $this->sec_model->find_all();
-        $data['title'] = "Listado secciones";
-        $data['view'] = "admin/secciones/secciones_list";
+        $data['title']       = "Listado secciones";
+        $data['view']        = "admin/secciones/secciones_list";
         $this->load->view('admin/templates/temp_simple', $data);
     }
 

@@ -48,10 +48,20 @@ class Var_model extends CI_Model
     /*--------------------------- LISTAR POR SECCION ---------------------------------------*/
     function find_by_seccion($var_id_seccion)
     {
-        $query=  sprintf("select * from variables where var_id_seccion=%s",$var_id_seccion);
+        $query=  sprintf("select * from variables inner join secciones on sec_id_seccion=var_id_seccion where var_id_seccion=%s",$var_id_seccion);
         $rows = $this->db->query($query);
         $rows = $rows->result_array();
         return $rows;
+        
+    }
+    
+    /*--------------------------- BUSCAR POR NOMBRE VARIABLE ---------------------------------------*/
+    function find_nombre($var_nombre)
+    {
+        $query=  sprintf("select var_descripcion from variables where var_nombre='%s'",$var_nombre);
+        $rows = $this->db->query($query);
+        $rows = $rows->row_array();
+        return $rows['var_descripcion'];
         
     }
 

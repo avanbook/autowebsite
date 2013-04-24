@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
-           <!-- CSS -->
+            <!-- CSS -->
             <link rel="stylesheet" href="<?php echo base_url(); ?>css/website/default/default.css" type="text/css" media="screen" />
             <link rel="stylesheet" href="<?php echo base_url(); ?>css/website/light/light.css" type="text/css" media="screen" />
             <link rel="stylesheet" href="<?php echo base_url(); ?>css/website/dark/dark.css" type="text/css" media="screen" />
@@ -41,13 +41,9 @@
                                 <div id="nav">
                                     <div  aling="center">
                                         <ul>
-                                            <li><a href="<?php echo base_url() ?>home/index.html" title="Ir a pagína de Inicio" >Inicio</a></li>	
-                                            <li><a href="<?php echo base_url() ?>home/lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					
-                                            <li><a href="<?php echo base_url() ?>home/cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/servicios.html" title="Servicios Cabañas Cabañas Huaraco" >Servicios</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/ubicacion.html" title="Ubicacion del Complejo" alt="ubicacion" >Ubicacion</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/fotos.html" title="Galeria fotografica de las cabañas" >Fotos</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/contacto.html" title="Contactenos.." >Contactenos</a></li>
+                                            <?php foreach ($secciones_array as $var): ?>
+                                                <li><a href="<?php echo base_url() . $var['sec_url'] ?>.html" title="<?php echo $var['sec_descripcion'] ?>" ><?php echo $var['sec_nombre'] ?></a></li>	
+                                            <?php endforeach; ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -56,27 +52,24 @@
                                 <div class="theme-default">
                                     <div id="sliders" class="nivoSlider">
                                         <?php foreach ($slider_array as $var): ?>
-                                            <img src="<?php echo base_url() ?>upload/images_slider/<?php echo $var['im_id_imagen'] ?>.jpg" alt=""  />
+                                            <img src="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" alt="<?php echo $var['im_descripcion'] ?>"  />
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <!--END:Slider -->
                                 <!--BEGUIN:CONTENIDOS -->
                                 <div id="bien" align="left">
-                                    <h1>EL Lugar</h1></div>
+                                    <h1><?php echo $lugar_head ?></h1>
+                                </div>
                                 <div id="contenidos" align="left">
                                     <div id="cabanas">
-                                        <br/>
-                                        <p>Si queres pasar unas vacaciones unido a tu familia disfruta de un lugar agradable y pensado para el descanso. Nos podes encontrar en San Rafael, Mendoza, calle Alberdi 5300, a solo 8 km de la ciudad de San Rafael.Tenes la posibilidad de poder recorrer lugares turisticos cercanos al lugar. Te ofrecemos seguridad en tu estadia para que puedas disfrutar de tu descanso reparador en todos los momentos del día.
-                                            El complejo cuenta con una Piscina para disfrutar del calor del verano, cancha de Volley, Parquizado y un quincho para comer ricos Asados en Familia.
-                                        </p>
-                                        <br/>
+                                        <?php echo $lugar_body ?>
                                     </div>
                                     <div id="foto_cab">
                                         <h2>Fotos de las Cabañas</h2>
                                         <p>Presione en imagen para agrandar.</p>
                                         <?php foreach ($gral_array as $var): ?>
-                                            <a href="<?php echo  base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" title="Vista Exteior Cabañas" ><img src="<?php echo  base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" alt=""  /></a>
+                                            <a href="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" title="" ><img src="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" alt="<?php echo $var['im_descripcion'] ?>"  /></a>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>

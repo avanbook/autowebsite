@@ -10,11 +10,12 @@
 <br>
 <br>
 <table class="table">
-    <tr><th>ID</th><th>Nombre</th><th>Acción</th></tr>
+    <tr><th>ID</th><th>Nombre</th><th>Url</th><th>Acción</th></tr>
     <?php foreach ($datos_array as $var): ?>
         <tr>
-            <td><?php echo $var['sec_id_seccion'] ?></td>
+            <td><?php echo $var['sec_orden'] ?></td>
             <td><?php echo $var['sec_nombre'] ?></td>
+            <td><?php echo $var['sec_url'] ?></td>
             <td>
                 <a href="<?php echo base_url() . "secciones/form/" . $var['sec_id_seccion'] ?>"><i class="icon-edit"></i></a>&nbsp;&nbsp;
                 <a href="<?php echo base_url() . "variables/form/?var_id_seccion=" . $var['sec_id_seccion'] ?>"><i class="icon-plus-sign"></i></a>&nbsp;&nbsp;

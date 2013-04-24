@@ -129,30 +129,26 @@
                                 <div id="nav">
                                     <div  aling="center">
                                         <ul>
-                                            <li><a href="<?php echo base_url() ?>home/index.html" title="Ir a pagína de Inicio" >Inicio</a></li>	
-                                            <li><a href="<?php echo base_url() ?>home/lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					
-                                            <li><a href="<?php echo base_url() ?>home/cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/servicios.html" title="Servicios Cabañas Cabañas Huaraco" >Servicios</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/ubicacion.html" title="Ubicacion del Complejo" alt="ubicacion" >Ubicacion</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/fotos.html" title="Galeria fotografica de las cabañas" >Fotos</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/contacto.html" title="Contactenos.." >Contactenos</a></li>
+                                            <?php foreach ($secciones_array as $var): ?>
+                                                <li><a href="<?php echo base_url() . $var['sec_url'] ?>.html" title="<?php echo $var['sec_descripcion'] ?>" ><?php echo $var['sec_nombre'] ?></a></li>	
+                                            <?php endforeach; ?>
                                         </ul>
                                     </div>
                                 </div>
                                 <!--END:NAV -->
                                 <!--BEGUIN:MAPA -->
-                                <div id="mapa"><div id="map"></div></div>
+                                <div id="mapa">
+                                    <div id="map">                                            
+                                    </div>                                        
+                                </div>
                                 <!--END:Slider -->
                                 <!--BEGUIN:CONTENIDOS -->
+                                <div id="bien" align="left">
+                                    <h1><?php echo $ubicacion_head ?></h1>
+                                </div>
                                 <div id="contenidos" align="left">
-                                    <div id="servicios"><h2>Ubicacion</h2>
-                                        <p>
-                                            Cabañas Huaraco esta ubicado en el distrito de Rama Caida a 12 km de la ciudad de San Rafael. Zona de hermosisima belleza elegida por bodegas y emprendimientos turisticos para instalarse debido a su tranquilidad y la belleza de la naturaleza que inunda la zona.
-                                            <br/><br/>
-                                            <b>Direccion:</b> Av Alverdi 5300 - San Rafael - Mendoza<br/><br/>
-                                            <b>Coordenadas GPS: </b> S 34 38.687 W 68 16.419
-                                        </p>
-                                        <br/>
+                                    <div id="cabanas">
+                                        <?php echo $ubicacion_body ?>
                                     </div>
                                     <div id="foto_cab">
                                         <h2>Contactenos</h2>

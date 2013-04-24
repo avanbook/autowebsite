@@ -47,13 +47,9 @@
                                 <div id="nav">
                                     <div  aling="center">
                                         <ul>
-                                            <li><a href="<?php echo base_url() ?>home/index.html" title="Ir a pagína de Inicio" >Inicio</a></li>	
-                                            <li><a href="<?php echo base_url() ?>home/lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					
-                                            <li><a href="<?php echo base_url() ?>home/cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/servicios.html" title="Servicios Cabañas Cabañas Huaraco" >Servicios</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/ubicacion.html" title="Ubicacion del Complejo" alt="ubicacion" >Ubicacion</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/fotos.html" title="Galeria fotografica de las cabañas" >Fotos</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/contacto.html" title="Contactenos.." >Contactenos</a></li>
+                                            <?php foreach ($secciones_array as $var): ?>
+                                                <li><a href="<?php echo base_url() . $var['sec_url'] ?>.html" title="<?php echo $var['sec_descripcion'] ?>" ><?php echo $var['sec_nombre'] ?></a></li>	
+                                            <?php endforeach; ?>
                                         </ul>
                                     </div>
                                 </div>
@@ -62,26 +58,23 @@
                                 <div class="theme-default">
                                     <div id="sliders" class="nivoSlider">
                                         <?php foreach ($slider_array as $var): ?>
-                                            <img src="<?php echo base_url() ?>upload/images_slider/<?php echo $var['im_id_imagen'] ?>.jpg" alt=""  />
+                                            <img src="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" alt="<?php echo $var['im_descripcion'] ?>"  />
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <!--END:Slider -->
                                 <!--BEGUIN:CONTENIDOS -->
                                 <div id="bien" align="left">
-                                    <h1>Las Cabañas</h1></div>
+                                    <h1><?php echo $cabanas_head ?></h1></div>
                                 <div id="contenidos" align="left">
                                     <div id="cabanas">
-                                        <br/>
-                                        <p><b>Cabañas Huaraco</b>  cuenta con 6 cabañas para 6 personas cada una ,cada cabaña cuenta con 2 dormitorios  (habitacion matrimonial con sommier en planta baja y el segundo dormitorio con 2 cuchetas en planta alta), cocina-comedor amplio, living con futon y televisor, baño ,cochera, aire acondicionado y terraza.
-                                        </p>
-                                        <br/>
+                                        <?php echo $cabanas_body ?>
                                     </div>
                                     <div id="foto_cab">
                                         <h2>Fotos de las Cabañas</h2>
                                         <p>Presione en imagen para agrandar.</p>
                                         <?php foreach ($gral_array as $var): ?>
-                                            <a href="<?php echo  base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" title="Vista Exteior Cabañas" ><img src="<?php echo  base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" alt=""  /></a>
+                                            <a href="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" title="" ><img src="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" alt="<?php echo $var['im_descripcion'] ?>"  /></a>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>

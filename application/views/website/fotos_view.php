@@ -6,7 +6,7 @@
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
         <link href='http://fonts.googleapis.com/css?family=Chau+Philomene+One' rel='stylesheet' type='text/css'>
-           <!-- CSS -->
+            <!-- CSS -->
             <link rel="stylesheet" href="<?php echo base_url(); ?>css/website/default/default.css" type="text/css" media="screen" />
             <link rel="stylesheet" href="<?php echo base_url(); ?>css/website/light/light.css" type="text/css" media="screen" />
             <link rel="stylesheet" href="<?php echo base_url(); ?>css/website/dark/dark.css" type="text/css" media="screen" />
@@ -92,47 +92,37 @@
                     </script>
                     </head>
                     <body>
-                        <div align="center" id="divtop">
-                            <div id="cont_info" align="right">
-                                    <div><p>Reservas al 0260 15 4418273 / 15 4698093  o Email: info@casasdellago.com</p></div>
-                                </div>
+                       <div align="center" id="divtop">
                             <div id="general" aling="center">
-                                <div id="home"><a href="index.html" title="Ir al home del Sitio">Ir a Home</a></div>	
                                 <!--BEGUIN:logo  -->
-                                <div id="logo" aling="center"><img src="<?php echo base_url(); ?>images/logo.png" alt="Casas del Lago | Logo"></div>
+                                <div id="logo"><img src="<?php echo base_url() ?>images/logo.png" alt="cabañas Huaraco"></div>
                                 <!--END : logo -->
                                 <!--BEGUIN:NAV -->
                                 <div id="nav">
                                     <div  aling="center">
                                         <ul>
-                                            <li><a href="<?php echo base_url() ?>home/index.html" title="Ir a pagína de Inicio" >Inicio</a></li>	
-                                            <li><a href="<?php echo base_url() ?>home/lugar.html" title="El Lugar - conoce el complejo" >El Lugar</a></li>					
-                                            <li><a href="<?php echo base_url() ?>home/cabanas.html" title="Ver las Cabañas" >Las Cabañas</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/servicios.html" title="Servicios Cabañas Cabañas Huaraco" >Servicios</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/ubicacion.html" title="Ubicacion del Complejo" alt="ubicacion" >Ubicacion</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/fotos.html" title="Galeria fotografica de las cabañas" >Fotos</a></li>
-                                            <li><a href="<?php echo base_url() ?>home/contacto.html" title="Contactenos.." >Contactenos</a></li>
+                                            <?php foreach ($secciones_array as $var): ?>
+                                                <li><a href="<?php echo base_url() . $var['sec_url'] ?>.html" title="<?php echo $var['sec_descripcion'] ?>" ><?php echo $var['sec_nombre'] ?></a></li>	
+                                            <?php endforeach; ?>
                                         </ul>
                                     </div>
                                 </div>
                                 <!--END:NAV -->
-                               <!--BEGUIN:SLIDER -->
+                                <!--BEGUIN:SLIDER -->
                                 <div class="theme-default">
                                     <div id="sliders" class="nivoSlider">
                                         <?php foreach ($slider_array as $var): ?>
-                                            <img src="<?php echo base_url() ?>upload/images_slider/<?php echo $var['im_id_imagen'] ?>.jpg" alt=""  />
+                                            <img src="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" alt="<?php echo $var['im_descripcion'] ?>"  />
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
                                 <!--END:Slider -->
                                 <!--BEGUIN:CONTENIDOS -->
                                 <div id="contenidos" align="left">
-                                    <div id="fotos"><h2>Galeria de Fotos</h2>
-                                        <p><b>Dicen que una foto vale mas que mil palabras!</b> .. conozcanos a traves de nuestras fotos.<br/>
-                                            Clickee en la imagen para ampliarla.
-                                        </p>
+                                    <div id="fotos"><h2><?php echo $fotos_head ?></h2>
+                                        <?php echo $fotos_body ?>
                                         <?php foreach ($gral_array as $var): ?>
-                                            <a href="<?php echo  base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" title="Vista Exteior Cabañas" ><img src="<?php echo  base_url() ?>upload/images_gral/<?php echo $var['im_id_imagen'] ?>" alt=""  /></a>
+                                            <a href="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" title="" ><img src="<?php echo base_url() . $var['it_gral_upload'] . $var['im_id_imagen'] ?>.jpg" alt="<?php echo $var['im_descripcion'] ?>"  /></a>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
