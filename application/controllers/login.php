@@ -18,7 +18,7 @@ class Login extends CI_Controller
             $this->login();
         else
         if ($a['usu_rol'] == 'user')
-            redirect(base_url() . 'datos/form_user/', 'refresh');
+            redirect(base_url() . 'datos_user/form_user/', 'refresh');
         else if ($a['usu_rol'] == 'admin')
             redirect(base_url() . 'datos/', 'refresh');
     }

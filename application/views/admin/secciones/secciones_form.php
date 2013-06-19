@@ -4,7 +4,7 @@
     <h1><?php echo "$title" ?></h1>
 </div>
 <!---------------------------CONTENIDO----------------------------------------->
-<form class="form-horizontal" method="post" action="<?php echo base_url() ?>secciones/save/">
+<form class="form-horizontal" method="post" action="<?php echo base_url() ?>admin/secciones/save/">
     <div class="control-group">
         <label class="control-label" >Nombre:</label>
         <div class="controls">
@@ -32,7 +32,7 @@
     <div class="control-group">
         <div class="controls">
             <button class="btn btn-large btn-primary" type="submit" >Guardar</button>&nbsp;&nbsp;
-            <a class="btn btn-large btn-info" href="<?php echo base_url() . "secciones/lists" ?>">Volver</a>
+            <a class="btn btn-large btn-info" href="<?php echo base_url() . "admin/secciones/lists" ?>">Volver</a>
         </div>
     </div>
     <input type="hidden" id="base_url" value="<?php echo base_url() ?>">

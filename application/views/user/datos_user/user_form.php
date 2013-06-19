@@ -1,5 +1,5 @@
 <div class="span12">
-    <form class="form-horizontal" method="post" action="<?php echo base_url() ?>admin/datos/save/">
+    <form class="form-horizontal" method="post" action="<?php echo base_url() ?>user/datos_user/save/">
         <div class="span12">
             <h4><?php echo $title ?></h4>
             <hr>
@@ -63,7 +63,7 @@
                     <textarea class="ckeditor" name="dat_descripcion"><?php echo $dat_descripcion ?></textarea>
                 </div>
             </div>
-            <div class="offset8"><button class="btn btn-large btn-primary" type="submit" >Guardar</button>&nbsp;&nbsp;<a class="btn btn-large btn-info" href="<?php echo base_url() . "datos/lists" ?>">Volver</a></div>
+            <div class="offset8"><button class="btn btn-large btn-primary" type="submit" >Guardar</button>&nbsp;&nbsp;<a class="btn btn-large btn-info" href="<?php echo base_url() . "user/datos_user/lists" ?>">Volver</a></div>
         </div>
         <input type="hidden" id="base_url" value="<?php echo base_url() ?>">
         <input type="hidden" name="accion" value="<?php echo $accion ?>">

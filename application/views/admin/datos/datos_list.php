@@ -1,7 +1,7 @@
 <div class="span12">
     <h4><?php echo $title ?></h4>
     <hr>
-    <a href="<?php echo base_url() . 'datos/form' ?>" class="btn btn-primary">Crear datos web</a>
+    <a href="<?php echo base_url() . 'admin/datos/form' ?>" class="btn btn-primary">Crear datos web</a>
     <br>
     <br>
     <table class="table">
@@ -13,8 +13,8 @@
                 <td><?php echo $var['dat_direccion'] ?></td>
                 <td><?php echo $var['dat_telefono'] ?></td>
                 <td>
-                    <a href="<?php echo base_url() . "datos/form/" . $var['dat_id_datos'] ?>"><i class="icon-edit"></i></a>&nbsp;&nbsp;
-                    <a  href= "<?php echo base_url() . "datos/delete/" . $var['dat_id_datos'] ?>" ><i class="icon-remove"></i></a>&nbsp;&nbsp;
+                    <a href="<?php echo base_url() . "admin/datos/form/" . $var['dat_id_datos'] ?>"><i class="icon-edit"></i></a>&nbsp;&nbsp;
+                    <a href= "<?php echo base_url() . "admin/datos/delete/" . $var['dat_id_datos'] ?>" ><i class="icon-remove"></i></a>&nbsp;&nbsp;
                 </td>
             </tr>
         <?php endforeach; ?>

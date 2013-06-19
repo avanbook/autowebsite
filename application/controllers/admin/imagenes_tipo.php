@@ -6,8 +6,8 @@ class Imagenes_tipo extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('it_model');
-        $this->load->model('im_model');
+        $this->load->model('admin/it_model');
+        $this->load->model('admin/im_model');
         $this->load->library('gf');
         $this->load->config('generic_config');
     }

@@ -11,7 +11,7 @@
                     <h4>Agregar mas fotos</h4>
                 </div>
                 <div class="span5">
-                    <form action="<?php echo base_url() ?>imagenes/save/" method="post" enctype="multipart/form-data">
+                    <form action="<?php echo base_url() ?>admin/imagenes/save/" method="post" enctype="multipart/form-data">
                         <input type="file" name="filesToUpload[]" id="filesToUpload" multiple="" value="Agregar Foto">
                         <input type="submit" value="subir" class="btn btn-primary"/>
                         <input name="im_id_imagen_tipo" value="<?php echo $im_id_imagen_tipo ?>" type="hidden" />
@@ -29,7 +29,7 @@
                                 <td><a rel="example_group" href="<?php echo base_url() . $it_gral_upload . $var['im_id_imagen'] . ".jpg" ?>"><img class="last"  width="50px" src="<?php echo base_url() . $it_gral_upload . $var['im_id_imagen'] . ".jpg" ?>"></a></td>
                             <?php endif ?>
                             <td>
-                                <form action="<?php echo base_url() ?>imagenes/save/" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url() ?>admin/imagenes/save/" method="post" enctype="multipart/form-data">
                                     <input type="file" name="filesToUpload[]" id="filesToUpload" multiple="" value="Agregar Foto">
                                     <input type="submit" value="subir" class="btn btn-primary"/>
                                     <input name="im_id_imagen" value="<?php echo $var['im_id_imagen'] ?>" type="hidden">
@@ -42,7 +42,7 @@
                                 <button onclick="guardar_des('<?php echo $var['im_id_imagen'] ?>','<?php echo $var['im_id_imagen_tipo'] ?>')" class="btn btn-primary btn-mini">OK</button>
                             </td>
                             <td>
-                                <a href= "<?php echo base_url() . "imagenes/delete/" . $var['im_id_imagen'] . "/?im_id_imagen_tipo=" . $var['im_id_imagen_tipo'] ?>" ><i class="icon-remove"></i></a>
+                                <a href= "<?php echo base_url() . "admin/imagenes/delete/" . $var['im_id_imagen'] . "/?im_id_imagen_tipo=" . $var['im_id_imagen_tipo'] ?>" ><i class="icon-remove"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

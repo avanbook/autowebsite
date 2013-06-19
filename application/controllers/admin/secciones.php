@@ -6,7 +6,7 @@ class Secciones extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('sec_model');
+        $this->load->model('admin/sec_model');
         $this->load->library('gf');
     }
 

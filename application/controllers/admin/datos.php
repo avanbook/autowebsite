@@ -1,12 +1,12 @@
 <?php
-
 class Datos extends CI_Controller
 {
 
     function __construct()
     {
         parent::__construct();
-        $this->load->model('dat_model');
+        $this->load->model('admin/dat_model');
+        $this->load->model('admin/var_model');
     }
 
     function index()
@@ -97,12 +97,12 @@ class Datos extends CI_Controller
         if ($accion == 'crear')
         {
             $this->dat_model->insert($datos_array);
-            redirect(base_url() . 'datos/lists/', 'refresh');
+            redirect(base_url() . 'admin/datos/lists/', 'refresh');
         }
         elseif ($accion == 'editar')
         {
             $this->dat_model->update($dat_id_datos, $datos_array);
-            redirect(base_url() . 'datos/lists/', 'refresh');
+            redirect(base_url() . 'admin/datos/lists/', 'refresh');
         }
         else
         {
@@ -122,47 +122,9 @@ class Datos extends CI_Controller
     function delete($dat_id_datos)
     {
         $this->dat_model->delete($dat_id_datos);
-        redirect(base_url() . 'datos/lists/', 'refresh');
+        redirect(base_url() . 'admin/datos/lists/', 'refresh');
     }
 
-    function form_user()
-    {
-        //Variables tabla
-        $data['dat_id_datos']    = & $dat_id_datos;
-        $data['dat_nombre']      = & $dat_nombre;
-        $data['dat_direccion']   = & $dat_direccion;
-        $data['dat_telefono']    = & $dat_telefono;
-        $data['dat_email']       = & $dat_email;
-        $data['dat_facebook']    = & $dat_facebook;
-        $data['dat_twitter']     = & $dat_twitter;
-        $data['dat_gplus']       = & $dat_gplus;
-        $data['dat_localidad']   = & $dat_localidad;
-        $data['dat_coordenadas'] = & $dat_coordenadas;
-        $data['dat_descripcion'] = & $dat_descripcion;
-
-        //Variables a pasar segun la vista
-        $data['title']  = & $title;
-        $data['accion'] = & $accion;
-
-
-        $row                     = $this->dat_model->find_all_rows();
-        $data['dat_id_datos']    = $row['dat_id_datos'];
-        $data['dat_nombre']      = $row['dat_nombre'];
-        $data['dat_direccion']   = $row['dat_direccion'];
-        $data['dat_telefono']    = $row['dat_telefono'];
-        $data['dat_email']       = $row['dat_email'];
-        $data['dat_facebook']    = $row['dat_facebook'];
-        $data['dat_twitter']     = $row['dat_twitter'];
-        $data['dat_gplus']       = $row['dat_gplus'];
-        $data['dat_localidad']   = $row['dat_localidad'];
-        $data['dat_coordenadas'] = $row['dat_coordenadas'];
-        $data['dat_descripcion'] = $row['dat_descripcion'];
-        $title  = "Editar datos página";
-        $accion = "editar";
-        $data['view'] = "admin/datos/datos_form";
-        $this->load->view('admin/templates/temp_user', $data);
-    }
-
+  
 }
-
 ?>

@@ -4,7 +4,7 @@
     <h1><?php echo "$title" ?></h1>
 </div>
 <!---------------------------CONTENIDO----------------------------------------->
-<a href="<?php echo base_url() . 'secciones/form' ?>" class="btn btn-primary">
+<a href="<?php echo base_url() . 'admin/secciones/form' ?>" class="btn btn-primary">
     Crear seccion
 </a>
 <br>
@@ -17,10 +17,10 @@
             <td><?php echo $var['sec_nombre'] ?></td>
             <td><?php echo $var['sec_url'] ?></td>
             <td>
-                <a href="<?php echo base_url() . "secciones/form/" . $var['sec_id_seccion'] ?>"><i class="icon-edit"></i></a>&nbsp;&nbsp;
-                <a href="<?php echo base_url() . "variables/form/?var_id_seccion=" . $var['sec_id_seccion'] ?>"><i class="icon-plus-sign"></i></a>&nbsp;&nbsp;
-                <a href="<?php echo base_url() . "variables/list_seccion/" . $var['sec_id_seccion']."/" ?>"><i class="icon-chevron-right"></i></a>&nbsp;&nbsp;
-                <a href="<?php echo base_url() . "secciones/delete/" . $var['sec_id_seccion'] ?>"><i class="icon-remove"></i></a>&nbsp;&nbsp;
+                <a href="<?php echo base_url() . "admin/secciones/form/" . $var['sec_id_seccion'] ?>"><i class="icon-edit"></i></a>&nbsp;&nbsp;
+                <a href="<?php echo base_url() . "admin/variables/form/?var_id_seccion=" . $var['sec_id_seccion'] ?>"><i class="icon-plus-sign"></i></a>&nbsp;&nbsp;
+                <a href="<?php echo base_url() . "admin/variables/list_seccion/" . $var['sec_id_seccion']."/" ?>"><i class="icon-chevron-right"></i></a>&nbsp;&nbsp;
+                <a href="<?php echo base_url() . "admin/secciones/delete/" . $var['sec_id_seccion'] ?>"><i class="icon-remove"></i></a>&nbsp;&nbsp;
             </td>
         </tr>
     <?php endforeach; ?>

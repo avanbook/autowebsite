@@ -6,8 +6,8 @@ class Imagenes extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('im_model');
-        $this->load->model('it_model');
+        $this->load->model('admin/im_model');
+        $this->load->model('admin/it_model');
         $this->load->config('generic_config');
     }
 
@@ -101,7 +101,7 @@ class Imagenes extends CI_Controller
                 }
             }
         }
-        redirect(base_url() . 'imagenes/lists/' . $im_id_imagen_tipo . "/", 'refresh');
+        redirect(base_url() . 'admin/imagenes/lists/' . $im_id_imagen_tipo . "/", 'refresh');
     }
 
     function delete($im_id_imagen = 0)
@@ -119,7 +119,7 @@ class Imagenes extends CI_Controller
 
         $this->im_model->delete($im_id_imagen);
 
-        redirect(base_url() . 'imagenes/lists/' . $im_id_imagen_tipo . "/", 'refresh');
+        redirect(base_url() . 'admin/imagenes/lists/' . $im_id_imagen_tipo . "/", 'refresh');
     }
 
     //Guardar la descripcion de imagenes por ajax

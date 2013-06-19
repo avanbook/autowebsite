@@ -6,8 +6,8 @@ class Variables extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('var_model');
-        $this->load->model('sec_model');
+        $this->load->model('admin/var_model');
+        $this->load->model('admin/sec_model');
         $this->load->library('gf');
     }
 

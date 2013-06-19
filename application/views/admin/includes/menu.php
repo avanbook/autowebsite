@@ -19,30 +19,30 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Datos<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url() ?>datos/form/">Nuevo Dato</a></li>
-                            <li><a href="<?php echo base_url() ?>datos/lists/">Listar Datos</a></li>
+                            <li><a href="<?php echo base_url() ?>admin/datos/form/">Nuevo Dato</a></li>
+                            <li><a href="<?php echo base_url() ?>admin/datos/lists/">Listar Datos</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Variables<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url() ?>variables/form/">Nueva Variable</a></li>
-                            <li><a href="<?php echo base_url() ?>variables/lists/">Listar Variables</a></li>
+                            <li><a href="<?php echo base_url() ?>admin/variables/form/">Nueva Variable</a></li>
+                            <li><a href="<?php echo base_url() ?>admin/variables/lists/">Listar Variables</a></li>
                         </ul>
                         
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Secciones<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url() ?>secciones/form/">Nueva Sección</a></li>
-                            <li><a href="<?php echo base_url() ?>secciones/lists/">Listado Secciones</a></li>
+                            <li><a href="<?php echo base_url() ?>admin/secciones/form/">Nueva Sección</a></li>
+                            <li><a href="<?php echo base_url() ?>admin/secciones/lists/">Listado Secciones</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Imagen Tipo<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url() ?>imagenes_tipo/form/">Nueva Imagen Tipo</a></li>
-                            <li><a href="<?php echo base_url() ?>imagenes_tipo/lists/">Listado Imagenes</a></li>
+                            <li><a href="<?php echo base_url() ?>admin/imagenes_tipo/form/">Nueva Imagen Tipo</a></li>
+                            <li><a href="<?php echo base_url() ?>admin/imagenes_tipo/lists/">Listado Imagenes</a></li>
                         </ul>
                     </li>
                 </ul>
