@@ -19,8 +19,13 @@ class Gf
             return "";
     }
 
-    function rol_check($tipo, $valor = array(), $base_url)
+    function rol_check($tipo, $base_url)
     {
+        
+
+        $CI    = & get_instance();
+        $valor = $CI->session->userdata('autowebsite_in');
+        
         if ($tipo == 'user')
         {
             if ($valor['usu_rol'] == 'user' || $valor['usu_rol'] == 'admin')
@@ -29,7 +34,7 @@ class Gf
             }
             else
             {
-                echo "Sin acceso, por favor logearse <a href='" . $base_url . "'><b>aqui<b><a>";
+                echo "Sin acceso, por favor logearse <a href='" . $base_url . "/login/'><b>aqui<b><a>";
                 exit();
             }
         }
@@ -41,7 +46,7 @@ class Gf
             }
             else
             {
-                echo "Sin acceso, por favor logearse <a href='" . $base_url . "'><b>aqui<b><a>";
+                echo "Sin acceso, por favor logearse <a href='" . $base_url . "/login/'><b>aqui<b><a>";
                 exit();
             }
         }

@@ -1,19 +1,22 @@
-<div class="container-fluid">
-    <!---------------------------CONTENIDO----------------------------------------->
-    <div class="page-header">
-            <h1>Ingreso AutoWebSite</h1>
-    </div>
-    <hr>
-    <br>
-    <?php if(validation_errors()): ?>
+
+<!---------------------------CONTENIDO----------------------------------------->
+<div class="page-header">
+    <h1>Ingreso Huaraco</h1>
+</div>
+<div class="row-fluid">
+    <a href="<?php echo base_url()."index.html" ?>" class="btn btn-info btn-large">Volver a Huaraco.com</a>
+</div>
+<hr>
+<br>
+<?php if (validation_errors()): ?>
     <div class="alert alert-error">
-    <?php echo validation_errors(); ?>
+        <?php echo validation_errors(); ?>
     </div>
-    <?php endif ?>
-    <br>
-    <div class="row-fluid">
-        <div class="span4 offset3">
-            <form class="form-horizontal" method="post" action="<?php echo  base_url()."login/verificar" ?>">
+<?php endif ?>
+<br>
+<div class="row-fluid">
+    <div class="span4 offset3">
+        <form class="form-horizontal" method="post" action="<?php echo base_url() . "login/verificar" ?>">
             <div class="control-group">
                 <label class="control-label" >Usuario</label>
                 <div class="controls">
@@ -30,9 +33,9 @@
                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
             </div>
         </form>
-        </div>
-        
-
     </div>
-    <!--------------------------------INPUT HIDDEN--------------------------------->
-    <input type="hidden" value="<?php echo base_url() ?>" id="base_url">
+
+
+</div>
+<!--------------------------------INPUT HIDDEN--------------------------------->
+<input type="hidden" value="<?php echo base_url() ?>" id="base_url">

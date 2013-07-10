@@ -21,7 +21,6 @@ class Home extends CI_Controller
 
     function home()
     {
-        echo 
         
         $data['secciones_array'] = $this->sec_model->find_all();
         $data['datos_row']       = $this->dat_model->find_all_rows();

@@ -17,6 +17,8 @@ class Secciones extends CI_Controller
 
     function form($id = 0)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $cantidad                = $this->sec_model->count($id);
         //Variables tabla
         $data['sec_id_seccion']  = & $sec_id_seccion;
@@ -54,6 +56,8 @@ class Secciones extends CI_Controller
 
     function save()
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $sec_id_seccion  = $this->input->post('sec_id_seccion');
         $sec_nombre      = $this->input->post('sec_nombre');
         $sec_descripcion = $this->input->post('sec_descripcion');
@@ -87,6 +91,8 @@ class Secciones extends CI_Controller
 
     function lists()
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $data['datos_array'] = $this->sec_model->find_all();
         $data['title']       = "Listado secciones";
         $data['view']        = "admin/secciones/secciones_list";
@@ -95,6 +101,8 @@ class Secciones extends CI_Controller
 
     function delete($id)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $this->sec_model->delete($id);
         redirect(base_url() . 'admin/secciones/lists/', 'refresh');
     }

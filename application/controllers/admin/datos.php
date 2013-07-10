@@ -16,6 +16,8 @@ class Datos extends CI_Controller
 
     function form($dat_id_datos = 0)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $cantidad                = $this->dat_model->count($dat_id_datos);
         //Variables tabla
         $data['dat_id_datos']    = & $dat_id_datos;
@@ -66,6 +68,8 @@ class Datos extends CI_Controller
 
     function save()
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $dat_id_datos    = $this->input->post('dat_id_datos');
         $dat_nombre      = $this->input->post('dat_nombre');
         $dat_direccion   = $this->input->post('dat_direccion');
@@ -113,6 +117,9 @@ class Datos extends CI_Controller
 
     function lists()
     {
+        $this->gf->rol_check('admin', base_url());
+        
+        
         $data['datos_array'] = $this->dat_model->find_all();
         $data['title']       = "Listado datos web";
         $data['view']        = "admin/datos/datos_list";
@@ -121,6 +128,8 @@ class Datos extends CI_Controller
 
     function delete($dat_id_datos)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $this->dat_model->delete($dat_id_datos);
         redirect(base_url() . 'admin/datos/lists/', 'refresh');
     }

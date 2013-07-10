@@ -87,7 +87,11 @@ class Login extends CI_Controller
     function salir()
     {
         $this->session->unset_userdata('autowebsite_in');
-        redirect(base_url() . "index.html", 'refresh');
+        
+        $tipo =  $this->session->userdata('autowebsite_in');
+        //print_r($tipo);
+        //exit();
+        redirect(base_url() . "login", 'refresh');
     }
 
 }

@@ -17,6 +17,8 @@ class Datos_user extends CI_Controller
 
     function save()
     {
+        $this->gf->rol_check('user', base_url());
+        
         $dat_id_datos    = $this->input->post('dat_id_datos');
         $dat_nombre      = $this->input->post('dat_nombre');
         $dat_direccion   = $this->input->post('dat_direccion');
@@ -48,6 +50,8 @@ class Datos_user extends CI_Controller
 
     function form()
     {
+        $this->gf->rol_check('user', base_url());
+        
         //Variables tabla
         $data['dat_id_datos']    = & $dat_id_datos;
         $data['dat_nombre']      = & $dat_nombre;

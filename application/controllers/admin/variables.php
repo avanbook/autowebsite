@@ -18,6 +18,8 @@ class Variables extends CI_Controller
 
     function form($var_id_variable = 0)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $var_id_seccion_get = $this->input->get('var_id_seccion');
 
 
@@ -61,6 +63,8 @@ class Variables extends CI_Controller
 
     function save()
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $var_id_variable = $this->input->post('var_id_variable');
         $var_nombre      = $this->input->post('var_nombre');
         $var_descripcion = $this->input->post('var_descripcion');
@@ -102,6 +106,8 @@ class Variables extends CI_Controller
 
     function  find_var_nombre($var_nombre)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $query=sprintf("select * from variables where var_nombre='%s'",$var_nombre);
         $row = $this->db->query($query);
         $row = $row->row_result();
@@ -111,6 +117,8 @@ class Variables extends CI_Controller
 
     function lists()
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $data['datos_array'] = $this->var_model->find_all_inner_seccion();
         $data['title']       = "Listado variables web";
         $data['view']        = "admin/variables/variables_list";
@@ -119,6 +127,8 @@ class Variables extends CI_Controller
 
     function list_seccion($var_id_seccion=0)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $data['datos_array'] = $this->var_model->find_by_seccion($var_id_seccion);
         $data['title']       = "Listado variables web";
         $data['view']        = "admin/variables/variables_list";
@@ -127,6 +137,8 @@ class Variables extends CI_Controller
 
     function delete($dat_id_datos)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $this->var_model->delete($dat_id_datos);
         redirect(base_url() . 'admin/variables/lists/', 'refresh');
     }

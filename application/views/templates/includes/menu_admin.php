@@ -6,7 +6,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">WebGeneric</a>
+            <a class="brand" href="#">Huaraco</a>
             <div class="nav-collapse collapse">
                 <div class="btn-group pull-right">
                     <a class="btn btn-primary" href="#"><i class="icon-user icon-white"></i>admin</a>

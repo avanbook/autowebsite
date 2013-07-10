@@ -13,6 +13,8 @@ class Imagenes_user extends CI_Controller
 
     function lists($im_id_imagen_tipo)
     {
+        $this->gf->rol_check('user', base_url());
+        
         $it_row                    = $this->it_model->find($im_id_imagen_tipo);
         $data['datos_array']       = $this->im_model->find_tipo($im_id_imagen_tipo);
         $data['im_id_imagen_tipo'] = $im_id_imagen_tipo;
@@ -28,6 +30,8 @@ class Imagenes_user extends CI_Controller
 
     function save()
     {
+        $this->gf->rol_check('user', base_url());
+        
         $im_id_imagen      = $this->input->post('im_id_imagen');
         $im_id_imagen_tipo = $this->input->post('im_id_imagen_tipo');
         $tipo              = $this->input->post('tipo');
@@ -106,6 +110,8 @@ class Imagenes_user extends CI_Controller
 
     function delete($im_id_imagen = 0)
     {
+        $this->gf->rol_check('user', base_url());
+        
         $im_id_imagen_tipo = $this->input->get('im_id_imagen_tipo');
         $it_row            = $this->it_model->find($im_id_imagen_tipo);
         $file_image        = $this->config->item('base_hosting') . $it_row['it_gral_upload'] .  $im_id_imagen . ".jpg";
@@ -125,6 +131,8 @@ class Imagenes_user extends CI_Controller
     //Guardar la descripcion de imagenes por ajax
     function ajax_descripcion()
     {
+        $this->gf->rol_check('user', base_url());
+        
         $im_id_imagen      = $this->input->post('im_id_imagen');
         $im_descripcion    = $this->input->post('im_descripcion');
         $im_id_imagen_tipo = $this->input->post('im_id_imagen_tipo');

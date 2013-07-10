@@ -19,6 +19,8 @@ class Imagenes_tipo extends CI_Controller
 
     function form($id = 0)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $cantidad                  = $this->it_model->count($id);
         //Variables tabla
         $data['it_id_imagen_tipo'] = & $it_id_imagen_tipo;
@@ -76,6 +78,8 @@ class Imagenes_tipo extends CI_Controller
 
     function save()
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $it_id_imagen_tipo = $this->input->post('it_id_imagen_tipo');
         $it_nombre         = $this->input->post('it_nombre');
         $it_descripcion    = $this->input->post('it_descripcion');
@@ -149,6 +153,8 @@ class Imagenes_tipo extends CI_Controller
 
     function lists()
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $data['datos_array'] = $this->it_model->find_all();
         $data['title']       = "Listado imagenes_tipo";
         $data['view']        = "admin/imagenes_tipo/imagenes_tipo_list";
@@ -157,6 +163,8 @@ class Imagenes_tipo extends CI_Controller
 
     function delete($id)
     {
+        $this->gf->rol_check('admin', base_url());
+        
         $row                    = $this->it_model->find($id);
         $upload_directory       = $this->config->item('base_hosting') . $row['it_gral_upload'];
         $upload_directory_thumb = $this->config->item('base_hosting') . $row['it_thumb_upload'];
