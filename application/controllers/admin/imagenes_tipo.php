@@ -71,7 +71,7 @@ class Imagenes_tipo extends CI_Controller
         }
 
         $data['view'] = "admin/imagenes_tipo/imagenes_tipo_form";
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function save()
@@ -152,7 +152,7 @@ class Imagenes_tipo extends CI_Controller
         $data['datos_array'] = $this->it_model->find_all();
         $data['title']       = "Listado imagenes_tipo";
         $data['view']        = "admin/imagenes_tipo/imagenes_tipo_list";
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function delete($id)

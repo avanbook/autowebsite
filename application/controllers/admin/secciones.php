@@ -49,7 +49,7 @@ class Secciones extends CI_Controller
         }
 
         $data['view'] = "admin/secciones/secciones_form";
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function save()
@@ -71,12 +71,12 @@ class Secciones extends CI_Controller
         if ($accion == 'crear')
         {
             $this->sec_model->insert($datos_array);
-            redirect(base_url() . 'secciones/lists/', 'refresh');
+            redirect(base_url() . 'admin/secciones/lists/', 'refresh');
         }
         elseif ($accion == 'editar')
         {
             $this->sec_model->update($sec_id_seccion, $datos_array);
-            redirect(base_url() . 'secciones/lists/', 'refresh');
+            redirect(base_url() . 'admin/secciones/lists/', 'refresh');
         }
         else
         {
@@ -90,13 +90,13 @@ class Secciones extends CI_Controller
         $data['datos_array'] = $this->sec_model->find_all();
         $data['title']       = "Listado secciones";
         $data['view']        = "admin/secciones/secciones_list";
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function delete($id)
     {
         $this->sec_model->delete($id);
-        redirect(base_url() . 'secciones/lists/', 'refresh');
+        redirect(base_url() . 'admin/secciones/lists/', 'refresh');
     }
 
 }

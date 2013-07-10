@@ -39,7 +39,7 @@ class Var_model extends CI_Model
     
     function find_all_inner_seccion()
     {
-        $query="select * from variables inner join secciones on var_id_seccion=sec_id_seccion group by sec_id_seccion,var_id_variable";
+        $query="select * from variables left join secciones on var_id_seccion=sec_id_seccion group by sec_id_seccion,var_id_variable";
         $rows = $this->db->query($query);
         $rows = $rows->result_array();
         return $rows;

@@ -23,7 +23,7 @@ class Imagenes extends CI_Controller
         $data['title']             = "Listado imagenes";
         $data['view']              = "admin/imagenes/imagenes_list";
         $data['js'] = array('js/admin/imagenes_list','js/blockui-master/jquery.blockUI');
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function save()

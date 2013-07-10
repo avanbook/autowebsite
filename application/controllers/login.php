@@ -6,7 +6,7 @@ class Login extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('usu_model');
+        $this->load->model('admin/usu_model');
         $this->load->library('form_validation');
         $this->load->library('gf');
     }
@@ -18,15 +18,15 @@ class Login extends CI_Controller
             $this->login();
         else
         if ($a['usu_rol'] == 'user')
-            redirect(base_url() . 'datos_user/form_user/', 'refresh');
+            redirect(base_url() . 'user/datos_user/form/', 'refresh');
         else if ($a['usu_rol'] == 'admin')
-            redirect(base_url() . 'datos/', 'refresh');
+            redirect(base_url() . 'admin/datos/', 'refresh');
     }
 
     function login()
     {
         $data['title'] = 'Loguearse';
-        $data['view']  = 'login/login_form';
+        $data['view']  = 'admin/login/login_form';
         $this->load->view('templates/temp_simple', $data);
     }
 
@@ -40,16 +40,19 @@ class Login extends CI_Controller
         {
             //Field validation failed.&nbsp; User redirected to login page
             $data['title'] = 'Loguearse';
-            $data['view']  = 'login/login_form';
+            $data['view']  = 'admin/login/login_form';
             $this->load->view('templates/temp_simple', $data);
         }
         else
         {
+            $a = $this->session->userdata('autowebsite_in');
             //Go to private area
-            if($a['usu_rol']=='user')
-                redirect(base_url() . 'datos/form_user/', 'refresh');
-            else 
-                redirect(base_url() . 'datos/', 'refresh');
+            if ($a['usu_rol'] == 'user')
+                redirect(base_url() . 'user/datos_user/form/', 'refresh');
+            else if ($a['usu_rol'] == 'admin')
+                redirect(base_url() . 'admin/datos/', 'refresh');
+            else
+                $this->login();
         }
     }
 
@@ -58,7 +61,7 @@ class Login extends CI_Controller
         $u_nick = $this->input->post('usu_nick');
 
         //query the database
-        $row = $this->us_model->login($u_nick, $u_clave);
+        $row = $this->usu_model->login($u_nick, $u_clave);
 
         if ($row)
         {
@@ -84,7 +87,7 @@ class Login extends CI_Controller
     function salir()
     {
         $this->session->unset_userdata('autowebsite_in');
-        redirect(base_url() . "login/", 'refresh');
+        redirect(base_url() . "index.html", 'refresh');
     }
 
 }

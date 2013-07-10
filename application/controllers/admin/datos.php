@@ -61,7 +61,7 @@ class Datos extends CI_Controller
 
         $data['view'] = "admin/datos/datos_form";
         $data['js']   = array('js/ckeditor/ckeditor');
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function save()
@@ -116,7 +116,7 @@ class Datos extends CI_Controller
         $data['datos_array'] = $this->dat_model->find_all();
         $data['title']       = "Listado datos web";
         $data['view']        = "admin/datos/datos_list";
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function delete($dat_id_datos)

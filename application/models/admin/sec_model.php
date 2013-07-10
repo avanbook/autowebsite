@@ -70,6 +70,15 @@ class Sec_model extends CI_Model
         $row = $row->row_array();
         return $row['cantidad'];
     }
+    
+    function sec_nombre_return($sec_id_seccion)
+    {
+        $query=sprintf("select sec_nombre from secciones where sec_id_seccion=%s",$sec_id_seccion);
+        $row = $this->db->query($query);
+        $row = $row->row_array();
+        return $row['sec_nombre'];
+    }
+    
 
 }
 

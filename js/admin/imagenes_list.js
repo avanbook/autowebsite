@@ -14,7 +14,7 @@ function guardar_des(id_imagen,id_imagen_tipo)
     }
     //AJAX
     $.ajax({
-        url: base_url+"imagenes/ajax_descripcion/",
+        url: base_url+"admin/imagenes/ajax_descripcion/",
         type: 'POST',
         data: datos,
         dataType: "json",

@@ -38,14 +38,14 @@
 |
 */
 
-$route['default_controller'] = "home";
-$route['index'] = "home";
-$route['cabanas'] = "home/cabanas/";
-$route['contacto'] = "home/contacto/";
-$route['fotos'] = "home/fotos/";
-$route['lugar'] = "home/lugar/";
-$route['servicios'] = "home/servicios/";
-$route['ubicacion'] = "home/ubicacion/";    
+$route['default_controller'] = "web/home";
+$route['index'] = "web/home";
+$route['cabanas'] = "web/home/cabanas/";
+$route['contacto'] = "web/home/contacto/";
+$route['fotos'] = "web/home/fotos/";
+$route['lugar'] = "web/home/lugar/";
+$route['servicios'] = "web/home/servicios/";
+$route['ubicacion'] = "web/home/ubicacion/";    
 $route['404_override'] = '';
 
 

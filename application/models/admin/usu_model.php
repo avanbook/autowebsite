@@ -68,6 +68,8 @@ class Usu_model extends CI_Model
     {
         
         $query=sprintf("select * from usuarios where usu_nick='%s' and usu_clave='%s' ",$u_nick,$u_clave);
+
+        
         $row = $this->db->query($query);
         
         if($row->num_rows()==0)

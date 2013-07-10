@@ -42,7 +42,8 @@ class Variables extends CI_Controller
             $var_id_seccion  = $row['var_id_seccion'];
             $var_titulo      = $row['var_titulo'];
             $var_html        = $row['var_html'];
-            $title           = "Editar variable página";
+            $sec_nombre = $this->sec_model->sec_nombre_return($var_id_seccion);
+            $title           = "Editar variable seccion   ".strtoupper($sec_nombre);
             $accion          = "editar";
         }
         else
@@ -52,11 +53,10 @@ class Variables extends CI_Controller
         }
         //En el caso de crear un variable de una seccion predeterminada
         $data['var_id_seccion_get'] = $var_id_seccion_get;
-
         $data['secciones_array'] = $this->sec_model->find_all();
         $data['view']            = "admin/variables/variables_form";
         $data['js']              = array('js/ckeditor/ckeditor');
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function save()
@@ -86,12 +86,12 @@ class Variables extends CI_Controller
         if ($accion == 'crear')
         {
             $this->var_model->insert($datos_array);
-            redirect(base_url() . 'variables/lists/', 'refresh');
+            redirect(base_url() . 'admin/variables/lists/', 'refresh');
         }
         elseif ($accion == 'editar')
         {
             $this->var_model->update($var_id_variable, $datos_array);
-            redirect(base_url() . 'variables/lists/', 'refresh');
+            redirect(base_url() . 'admin/variables/lists/', 'refresh');
         }
         else
         {
@@ -109,14 +109,12 @@ class Variables extends CI_Controller
     }
 
 
-
-
     function lists()
     {
         $data['datos_array'] = $this->var_model->find_all_inner_seccion();
         $data['title']       = "Listado variables web";
         $data['view']        = "admin/variables/variables_list";
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function list_seccion($var_id_seccion=0)
@@ -124,13 +122,13 @@ class Variables extends CI_Controller
         $data['datos_array'] = $this->var_model->find_by_seccion($var_id_seccion);
         $data['title']       = "Listado variables web";
         $data['view']        = "admin/variables/variables_list";
-        $this->load->view('admin/templates/temp_simple', $data);
+        $this->load->view('templates/temp_admin', $data);
     }
 
     function delete($dat_id_datos)
     {
         $this->var_model->delete($dat_id_datos);
-        redirect(base_url() . 'variables/lists/', 'refresh');
+        redirect(base_url() . 'admin/variables/lists/', 'refresh');
     }
 
 }

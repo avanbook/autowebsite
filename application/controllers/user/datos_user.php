@@ -43,7 +43,7 @@ class Datos_user extends CI_Controller
         );
 
         $this->dat_model->update($dat_id_datos, $datos_array);
-        redirect(base_url() . 'user/datos_user/lists/', 'refresh');
+        redirect(base_url() . 'user/datos_user/form/', 'refresh');
     }
 
     function form()
@@ -82,7 +82,7 @@ class Datos_user extends CI_Controller
         $title        = "Editar datos página";
         $accion       = "editar";
         $data['view'] = "user/datos_user/user_form";
-        $this->load->view('admin/templates/temp_user', $data);
+        $this->load->view('templates/temp_user', $data);
     }
 
 

@@ -1,4 +1,4 @@
-<div class="span12">
+
     <h4><?php echo $title ?></h4>
     <hr>
     <a href="<?php echo base_url() . 'admin/variables/form' ?>" class="btn btn-primary">Crear variable web</a>
@@ -21,4 +21,3 @@
     </table>
     <input type="hidden" id="base_url" value="<?php echo base_url() ?>">
     <input type="hidden" name="accion" value="guardar">
-</div>
